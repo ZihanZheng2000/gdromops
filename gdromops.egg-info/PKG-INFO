@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: gdromops
+Version: 0.1.0
+Summary: On-demand reservoir operation rules loader and simulator (GDROM)
+Author: Zihan Zheng
+License: MIT
+Project-URL: Homepage, https://github.com/ZihanZheng2000/gdromops
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.5
+Requires-Dist: requests>=2.31
+Dynamic: license-file
+
+
+# gdromops
+
+Load reservoir operation rules (CT + modules) from GitHub on demand and simulate releases/storage.
+
+## Install (editable dev)
+```bash
+pip install -e .
+```
+
+## Quick start
+```python
+from gdromops import RuleEngine
+import pandas as pd
+
+# Timeseries must include columns: Date, Inflow, Storage, DOY, PDSI
+df = pd.read_csv("your_timeseries.csv", parse_dates=["Date"])
+
+eng = RuleEngine(grand_id=41)  # downloads rules from GitHub (cached locally)
+out = eng.simulate_release_and_storage(df)
+print(out.head())
+```
+
+## Configuration
+Default rules base (GitHub raw) is set in `gdromops/config.py`. Set env var `GDROMOPS_CACHE`
+to change the cache directory.

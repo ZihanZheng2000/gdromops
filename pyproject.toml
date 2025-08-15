@@ -1,0 +1,20 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gdromops"
+version = "0.1.0"
+description = "On-demand reservoir operation rules loader and simulator (GDROM)"
+readme = "README.md"
+authors = [{ name = "Zihan Zheng" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["pandas>=1.5", "requests>=2.31"]
+
+[project.urls]
+Homepage = "https://github.com/ZihanZheng2000/gdromops"
+
+[tool.setuptools.packages.find]
+where = ["."]

@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+gdromops/__init__.py
+gdromops/cache.py
+gdromops/config.py
+gdromops/engine.py
+gdromops/loader.py
+gdromops/parser.py
+gdromops.egg-info/PKG-INFO
+gdromops.egg-info/SOURCES.txt
+gdromops.egg-info/dependency_links.txt
+gdromops.egg-info/requires.txt
+gdromops.egg-info/top_level.txt
