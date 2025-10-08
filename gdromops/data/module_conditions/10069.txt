@@ -1,0 +1,6 @@
+if (Inflow <= 53.8) then module: 0
+if (Inflow <= 63.7) and (Inflow > 53.8) then module: 1
+if (Inflow <= 65.6) and (Inflow > 63.7) then module: 0
+if (Inflow <= 69.0) and (Inflow > 65.6) then module: 1
+if (Inflow <= 70.5) and (Inflow > 69.0) then module: 0
+if (Inflow > 70.5) then module: 1

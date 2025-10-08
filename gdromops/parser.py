@@ -36,7 +36,7 @@ def build_module_function_from_text(grand_id, module_id, text):
             body.append(f"    return {expr}")
         elif "then Release:" in s:
             cond_part, val_part = s.split("then Release:")
-            condition = cond_part.strip()[3:].strip()  # drop leading 'if '
+            condition = cond_part.strip()[3:].strip() 
             condition = (condition.replace("Inflow","inflow")
                                    .replace("Storage","storage"))
             value = val_part.strip()

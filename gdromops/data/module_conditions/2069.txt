@@ -1,0 +1,11 @@
+if (Inflow <= 3391.1) and (PDSI <= -0.08) then module: 1
+if (Inflow <= 813.7) and (Storage <= 11689.7) and (PDSI <= 0.1) and (PDSI > -0.08) then module: 0
+if (Inflow <= 813.7) and (Storage <= 11689.7) and (PDSI > 0.1) then module: 1
+if (Inflow <= 3391.1) and (Inflow > 813.7) and (Storage <= 11689.7) and (PDSI > -0.08) then module: 1
+if (Inflow <= 3391.1) and (Storage > 11689.7) and (PDSI > -0.08) then module: 1
+if (Inflow <= 4231.6) and (Inflow > 3391.1) and (PDSI <= 1.66) and (DOY <= 119.0) then module: 0
+if (Inflow <= 4231.6) and (Inflow > 3391.1) and (PDSI > 1.66) and (DOY <= 119.0) then module: 1
+if (Inflow <= 4231.6) and (Inflow > 3391.1) and (DOY > 119.0) then module: 1
+if (Inflow <= 7557.8) and (Inflow > 4231.6) then module: 1
+if (Inflow <= 7875.5) and (Inflow > 7557.8) then module: 0
+if (Inflow > 7875.5) then module: 1

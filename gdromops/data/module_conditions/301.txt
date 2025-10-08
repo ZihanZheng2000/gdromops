@@ -1,0 +1,6 @@
+if (Inflow <= 619.3) and (Storage <= 13068.1) then module: 0
+if (Inflow <= 619.3) and (Storage <= 76188.8) and (Storage > 13068.1) then module: 1
+if (Inflow <= 619.3) and (Storage <= 87672.0) and (Storage > 76188.8) and (DOY <= 39.0) then module: 2
+if (Inflow <= 619.3) and (Storage <= 87672.0) and (Storage > 76188.8) and (DOY > 39.0) then module: 1
+if (Inflow <= 619.3) and (Storage > 87672.0) then module: 1
+if (Inflow > 619.3) then module: 1

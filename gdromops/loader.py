@@ -1,24 +1,36 @@
+import os
 
-import requests
-from .config import DEFAULT_RULES_BASE, TIMEOUT
-from .cache import cache_path
+def _get_data_path(*paths: str) -> str:
+    """
+    Return the absolute path to a file inside the package's data directory.
+    """
+    base_dir = os.path.join(os.path.dirname(__file__), "data")
+    return os.path.join(base_dir, *paths)
 
-def _url(kind: str, name: str) -> str:
-    return f"{DEFAULT_RULES_BASE}/{kind}/{name}"
 
-def fetch_text(kind: str, name: str, use_cache=True) -> str:
-    cp = cache_path(kind, name)
-    if use_cache and cp.exists():
-        return cp.read_text(encoding="utf-8")
-    url = _url(kind, name)
-    r = requests.get(url, timeout=TIMEOUT)
-    r.raise_for_status()
-    text = r.text
-    cp.write_text(text, encoding="utf-8")
-    return text
+def _read_text(path: str) -> str:
+    """
+    Safely read text content from a file.
+    """
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"File not found: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
+
 
 def load_ct_text(grand_id: str | int) -> str:
-    return fetch_text("module_conditions", f"{grand_id}.txt")
+    """
+    Load the classification tree (module condition) text
+    for a given reservoir ID from data/module_conditions.
+    """
+    path = _get_data_path("module_conditions", f"{grand_id}.txt")
+    return _read_text(path)
+
 
 def load_module_text(grand_id: str | int, module_id: str | int) -> str:
-    return fetch_text("modules", f"{grand_id}_{module_id}.txt")
+    """
+    Load the module rule text for a specific reservoir and module ID
+    from data/modules.
+    """
+    path = _get_data_path("modules", f"{grand_id}_{module_id}.txt")
+    return _read_text(path)

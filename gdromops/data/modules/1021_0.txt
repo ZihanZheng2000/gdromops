@@ -1,0 +1,20 @@
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow <= 3822.9) and (Storage <= 34296.4) and (Inflow <= 1292.1) then Release: 168.1
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow <= 3822.9) and (Storage <= 34296.4) and (Inflow > 1292.1) then Release: 669.1
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow <= 3822.9) and (Storage > 34296.4) and (Inflow <= 1081.4) then Release: 524.7
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow <= 3822.9) and (Storage > 34296.4) and (Inflow > 1081.4) then Release: 947.9
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow > 3822.9) and (Storage <= 33962.4) and (Storage <= 33095.8) then Release: 1129.1
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow > 3822.9) and (Storage <= 33962.4) and (Storage > 33095.8) then Release: 4624.3
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage <= 36431.4) and (Inflow > 3822.9) and (Storage > 33962.4) then Release: 1257.3
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage > 36431.4) and (Storage <= 38301.0) then Release: 1077.6
+if (Storage <= 53589.8) and (Storage <= 39986.4) and (Storage > 36431.4) and (Storage > 38301.0) then Release: 1574.1
+if (Storage <= 53589.8) and (Storage > 39986.4) and (Storage <= 45362.7) and (Storage <= 41957.3) then Release: 2087.0
+if (Storage <= 53589.8) and (Storage > 39986.4) and (Storage <= 45362.7) and (Storage > 41957.3) then Release: 2860.5
+if (Storage <= 53589.8) and (Storage > 39986.4) and (Storage > 45362.7) and (Storage <= 48874.3) then Release: 3751.4
+if (Storage <= 53589.8) and (Storage > 39986.4) and (Storage > 45362.7) and (Storage > 48874.3) then Release: 4752.7
+if (Storage > 53589.8) and (Storage <= 81577.7) and (Storage <= 63591.2) and (Storage <= 57707.4) then Release: 5873.0
+if (Storage > 53589.8) and (Storage <= 81577.7) and (Storage <= 63591.2) and (Storage > 57707.4) then Release: 7150.3
+if (Storage > 53589.8) and (Storage <= 81577.7) and (Storage > 63591.2) and (Storage <= 65740.8) then Release: 8644.6
+if (Storage > 53589.8) and (Storage <= 81577.7) and (Storage > 63591.2) and (Storage > 65740.8) then Release: 10415.6
+if (Storage > 53589.8) and (Storage > 81577.7) and (Storage <= 111790.1) and (Storage <= 94153.9) then Release: 12694.5
+if (Storage > 53589.8) and (Storage > 81577.7) and (Storage <= 111790.1) and (Storage > 94153.9) then Release: 14631.4
+if (Storage > 53589.8) and (Storage > 81577.7) and (Storage > 111790.1) then Release: 18481.1

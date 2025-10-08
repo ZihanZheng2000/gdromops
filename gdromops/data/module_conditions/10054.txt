@@ -1,0 +1,21 @@
+if (Inflow <= 1101.1) and (Storage <= 8826.8) and (DOY <= 12.0) then module: 3
+if (Inflow <= 1101.1) and (Storage <= 8826.8) and (DOY > 12.0) then module: 0
+if (Inflow <= 1101.1) and (Storage <= 12020.0) and (Storage > 8826.8) then module: 0
+if (Inflow <= 790.1) and (Storage <= 16115.0) and (Storage > 12020.0) and (PDSI <= 1.68) then module: 0
+if (Inflow <= 1101.1) and (Inflow > 790.1) and (Storage <= 16115.0) and (Storage > 12020.0) and (PDSI <= 1.68) then module: 3
+if (Inflow <= 1101.1) and (Storage <= 16115.0) and (Storage > 12020.0) and (PDSI > 1.68) then module: 3
+if (Inflow <= 1101.1) and (Storage <= 19956.9) and (Storage > 16115.0) then module: 2
+if (Inflow <= 1101.1) and (Storage > 19956.9) then module: 1
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 8785.3) and (PDSI <= -1.07) and (DOY <= 126.0) then module: 0
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 8785.3) and (PDSI > -1.07) and (DOY <= 126.0) then module: 3
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 8785.3) and (PDSI <= 2.81) and (DOY > 126.0) then module: 0
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 8785.3) and (PDSI > 2.81) and (DOY > 126.0) then module: 3
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 14993.4) and (Storage > 8785.3) then module: 3
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage <= 17972.3) and (Storage > 14993.4) then module: 2
+if (Inflow <= 2485.9) and (Inflow > 1101.1) and (Storage > 17972.3) then module: 1
+if (Inflow <= 4124.3) and (Inflow > 2485.9) and (Storage <= 17751.9) then module: 2
+if (Inflow > 4124.3) and (Storage <= 17751.9) and (PDSI <= 1.99) then module: 1
+if (Inflow > 4124.3) and (Storage <= 17751.9) and (PDSI > 1.99) then module: 2
+if (Inflow > 2485.9) and (Storage > 17751.9) and (DOY <= 5.0) then module: 2
+if (Inflow > 2485.9) and (Storage > 17751.9) and (PDSI <= -1.08) and (DOY > 5.0) then module: 2
+if (Inflow > 2485.9) and (Storage > 17751.9) and (PDSI > -1.08) and (DOY > 5.0) then module: 1

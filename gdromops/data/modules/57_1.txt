@@ -1,0 +1,16 @@
+if (Storage <= 208588.7) and (Inflow <= 82.8) and (Storage <= 111707.7) and (Storage <= 23179.9) then Release: 126.5
+if (Storage <= 208588.7) and (Inflow <= 82.8) and (Storage <= 111707.7) and (Storage > 23179.9) then Release: 330.7
+if (Storage <= 208588.7) and (Inflow <= 82.8) and (Storage > 111707.7) then Release: 774.6
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage <= 119092.5) then Release: 108.0
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow <= 179.5) and (Storage <= 179114.8) and (Storage <= 129282.3) then Release: 1017.4
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow <= 179.5) and (Storage <= 179114.8) and (Storage > 129282.3) then Release: 599.7
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow <= 179.5) and (Storage > 179114.8) then Release: 176.0
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow > 179.5) and (Inflow <= 426.6) and (Storage <= 178693.3) and (Storage <= 145737.8) then Release: 242.0
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow > 179.5) and (Inflow <= 426.6) and (Storage <= 178693.3) and (Storage > 145737.8) then Release: 492.4
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow > 179.5) and (Inflow <= 426.6) and (Storage > 178693.3) then Release: 159.6
+if (Storage <= 208588.7) and (Inflow > 82.8) and (Storage > 119092.5) and (Inflow > 179.5) and (Inflow > 426.6) then Release: 187.5
+if (Storage > 208588.7) and (Storage <= 223460.0) and (Inflow <= 338.2) then Release: 669.6
+if (Storage > 208588.7) and (Storage <= 223460.0) and (Inflow > 338.2) then Release: 394.4
+if (Storage > 208588.7) and (Storage > 223460.0) and (Inflow <= 835.1) then Release: 593.8
+if (Storage > 208588.7) and (Storage > 223460.0) and (Inflow > 835.1) and (Storage <= 236015.9) then Release: 586.5
+if (Storage > 208588.7) and (Storage > 223460.0) and (Inflow > 835.1) and (Storage > 236015.9) then Release: 931.7

@@ -1,20 +1,36 @@
 
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gdromops"
-version = "0.1.0"
-description = "On-demand reservoir operation rules loader and simulator (GDROM)"
+name = "gdromops"                     
+version = "0.1.1"                    
+description = "Generic Data-Driven Reservoir Operation Model (GDROM)"
+authors = [
+    {name = "Zihan Zheng", email = "your_email@example.com"}
+]
+license = {file = "LICENSE"}
 readme = "README.md"
-authors = [{ name = "Zihan Zheng" }]
-license = { text = "MIT" }
-requires-python = ">=3.9"
-dependencies = ["pandas>=1.5", "requests>=2.31"]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas",
+    "xarray",
+    "matplotlib"
+]
+keywords = ["reservoir", "hydrology", "data-driven", "GDROM", "water resources"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
 
-[project.urls]
-Homepage = "https://github.com/ZihanZheng2000/gdromops"
+[tool.setuptools]
+packages = ["gdromops"]
 
-[tool.setuptools.packages.find]
-where = ["."]
+[tool.setuptools.package-data]
+gdromops = [
+    "data/*.nc",
+    "data/module_conditions/*.txt",
+    "data/modules/*.txt"
+]

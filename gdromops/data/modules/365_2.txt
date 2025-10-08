@@ -1,0 +1,2 @@
+if (Storage <= 717969.6) then Release: 609.1
+if (Storage > 717969.6) then Release: 3823.1

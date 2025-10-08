@@ -1,0 +1,17 @@
+if (Inflow <= 4390.7) and (Inflow <= 1984.3) and (Inflow <= 943.8) and (Storage <= 161935.5) then Release: 1604.3
+if (Inflow <= 4390.7) and (Inflow <= 1984.3) and (Inflow <= 943.8) and (Storage > 161935.5) then Release: 717.9
+if (Inflow <= 4390.7) and (Inflow <= 1984.3) and (Inflow > 943.8) and (Storage <= 34498.2) then Release: 1013.9
+if (Inflow <= 4390.7) and (Inflow <= 1984.3) and (Inflow > 943.8) and (Storage > 34498.2) and (Storage <= 106100.4) then Release: 2253.2
+if (Inflow <= 4390.7) and (Inflow <= 1984.3) and (Inflow > 943.8) and (Storage > 34498.2) and (Storage > 106100.4) then Release: 1845.2
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow <= 3137.8) and (Storage <= 127189.1) and (Storage <= 112240.1) then Release: 2408.0
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow <= 3137.8) and (Storage <= 127189.1) and (Storage > 112240.1) then Release: 3012.4
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow <= 3137.8) and (Storage > 127189.1) and (Inflow <= 2505.5) then Release: 2112.9
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow <= 3137.8) and (Storage > 127189.1) and (Inflow > 2505.5) then Release: 2607.5
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow > 3137.8) and (Storage <= 127103.0) then Release: 2952.8
+if (Inflow <= 4390.7) and (Inflow > 1984.3) and (Inflow > 3137.8) and (Storage > 127103.0) then Release: 3359.3
+if (Inflow > 4390.7) and (Inflow <= 6330.7) and (Inflow <= 5622.7) and (Storage <= 158087.2) and (Inflow <= 4827.5) then Release: 3635.0
+if (Inflow > 4390.7) and (Inflow <= 6330.7) and (Inflow <= 5622.7) and (Storage <= 158087.2) and (Inflow > 4827.5) then Release: 4252.4
+if (Inflow > 4390.7) and (Inflow <= 6330.7) and (Inflow <= 5622.7) and (Storage > 158087.2) then Release: 4577.3
+if (Inflow > 4390.7) and (Inflow <= 6330.7) and (Inflow > 5622.7) then Release: 4954.2
+if (Inflow > 4390.7) and (Inflow > 6330.7) and (Inflow <= 7314.3) then Release: 6081.0
+if (Inflow > 4390.7) and (Inflow > 6330.7) and (Inflow > 7314.3) then Release: 7108.3

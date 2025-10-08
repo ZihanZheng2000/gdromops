@@ -1,0 +1,8 @@
+if (Storage <= 1289.6) and (Storage <= 1188.2) and (Inflow <= 7.1) then Release: 7.5
+if (Storage <= 1289.6) and (Storage <= 1188.2) and (Inflow > 7.1) and (Inflow <= 7.3) then Release: 8.9
+if (Storage <= 1289.6) and (Storage <= 1188.2) and (Inflow > 7.1) and (Inflow > 7.3) then Release: 7.9
+if (Storage <= 1289.6) and (Storage > 1188.2) then Release: 7.1
+if (Storage > 1289.6) and (Storage <= 1334.0) and (Storage <= 1307.3) then Release: 5.8
+if (Storage > 1289.6) and (Storage <= 1334.0) and (Storage > 1307.3) then Release: 4.9
+if (Storage > 1289.6) and (Storage > 1334.0) and (Inflow <= 3.1) then Release: 5.5
+if (Storage > 1289.6) and (Storage > 1334.0) and (Inflow > 3.1) then Release: 6.9

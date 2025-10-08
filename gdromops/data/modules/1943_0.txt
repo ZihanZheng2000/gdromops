@@ -1,0 +1,18 @@
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow <= 1.7) and (Storage <= 303.1) then Release: 0.7
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow <= 1.7) and (Storage > 303.1) and (Storage <= 318.0) and (Storage <= 307.1) then Release: 1.3
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow <= 1.7) and (Storage > 303.1) and (Storage <= 318.0) and (Storage > 307.1) then Release: 2.1
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow <= 1.7) and (Storage > 303.1) and (Storage > 318.0) and (Storage <= 337.2) then Release: 0.7
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow <= 1.7) and (Storage > 303.1) and (Storage > 318.0) and (Storage > 337.2) then Release: 1.5
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow > 1.7) and (Storage <= 305.7) then Release: 1.0
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow > 1.7) and (Storage > 305.7) and (Storage <= 324.2) and (Storage <= 311.7) then Release: 2.2
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow > 1.7) and (Storage > 305.7) and (Storage <= 324.2) and (Storage > 311.7) then Release: 3.3
+if (Inflow <= 3.0) and (Storage <= 342.2) and (Inflow > 1.7) and (Storage > 305.7) and (Storage > 324.2) then Release: 1.3
+if (Inflow <= 3.0) and (Storage > 342.2) and (Storage <= 349.1) then Release: 2.6
+if (Inflow <= 3.0) and (Storage > 342.2) and (Storage > 349.1) then Release: 4.2
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage <= 311.3) then Release: 1.5
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage > 311.3) and (Inflow <= 7.1) and (Storage <= 331.8) and (Storage <= 317.7) then Release: 3.4
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage > 311.3) and (Inflow <= 7.1) and (Storage <= 331.8) and (Storage > 317.7) then Release: 5.2
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage > 311.3) and (Inflow <= 7.1) and (Storage > 331.8) and (Storage <= 347.3) then Release: 2.0
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage > 311.3) and (Inflow <= 7.1) and (Storage > 331.8) and (Storage > 347.3) then Release: 4.3
+if (Inflow > 3.0) and (Storage <= 359.6) and (Storage > 311.3) and (Inflow > 7.1) then Release: 5.8
+if (Inflow > 3.0) and (Storage > 359.6) then Release: 8.5

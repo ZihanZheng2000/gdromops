@@ -1,0 +1,41 @@
+if (Inflow <= -37.5) and (Storage <= 36448.5) and (DOY <= 279.0) then module: 3
+if (Inflow <= -21.2) and (Inflow > -37.5) and (Storage <= 36448.5) and (DOY <= 279.0) then module: 0
+if (Inflow <= 23.9) and (Inflow > -21.2) and (Storage <= 36448.5) and (DOY <= 279.0) then module: 3
+if (Inflow <= 23.9) and (Storage <= 25879.2) and (DOY > 279.0) then module: 3
+if (Inflow <= 23.9) and (Storage <= 36448.5) and (Storage > 25879.2) and (DOY <= 302.0) and (DOY > 279.0) then module: 0
+if (Inflow <= 23.9) and (Storage <= 36448.5) and (Storage > 25879.2) and (DOY > 302.0) then module: 2
+if (Inflow <= 265.0) and (Inflow > 23.9) and (Storage <= 25145.1) and (PDSI <= -2.71) and (DOY <= 256.0) then module: 3
+if (Inflow <= 265.0) and (Inflow > 23.9) and (Storage <= 25145.1) and (PDSI > -2.71) and (DOY <= 256.0) then module: 0
+if (Inflow <= 265.0) and (Inflow > 23.9) and (Storage <= 25145.1) and (DOY > 256.0) then module: 3
+if (Inflow <= 46.6) and (Inflow > 23.9) and (Storage <= 36448.5) and (Storage > 25145.1) then module: 0
+if (Inflow <= 55.6) and (Inflow > 46.6) and (Storage <= 36448.5) and (Storage > 25145.1) then module: 3
+if (Inflow <= 265.0) and (Inflow > 55.6) and (Storage <= 36448.5) and (Storage > 25145.1) then module: 0
+if (Inflow <= 265.0) and (Storage <= 37440.9) and (Storage > 36448.5) then module: 2
+if (Inflow <= 265.0) and (Storage <= 54985.1) and (Storage > 37440.9) and (PDSI <= 1.22) then module: 1
+if (Inflow <= 265.0) and (Storage <= 54985.1) and (Storage > 37440.9) and (PDSI > 1.22) and (DOY <= 186.0) then module: 4
+if (Inflow <= 265.0) and (Storage <= 54985.1) and (Storage > 37440.9) and (PDSI > 1.22) and (DOY > 186.0) then module: 1
+if (Inflow <= -186.5) and (Storage > 54985.1) then module: 1
+if (Inflow <= 265.0) and (Inflow > -186.5) and (Storage > 54985.1) and (DOY <= 181.0) then module: 4
+if (Inflow <= 265.0) and (Inflow > -186.5) and (Storage > 54985.1) and (DOY <= 330.0) and (DOY > 181.0) then module: 1
+if (Inflow <= 265.0) and (Inflow > -186.5) and (Storage > 54985.1) and (DOY > 330.0) then module: 4
+if (Inflow <= 376.6) and (Inflow > 265.0) and (Storage <= 26001.7) then module: 0
+if (Inflow <= 376.6) and (Inflow > 265.0) and (Storage <= 35961.3) and (Storage > 26001.7) then module: 2
+if (Inflow <= 899.5) and (Inflow > 376.6) and (Storage <= 24641.7) then module: 3
+if (Inflow <= 899.5) and (Inflow > 376.6) and (Storage <= 26399.3) and (Storage > 24641.7) then module: 2
+if (Inflow <= 899.5) and (Inflow > 376.6) and (Storage <= 35961.3) and (Storage > 26399.3) then module: 2
+if (Inflow <= 3429.8) and (Inflow > 899.5) and (Storage <= 25940.5) and (DOY <= 91.0) then module: 2
+if (Inflow <= 3429.8) and (Inflow > 899.5) and (Storage <= 25940.5) and (DOY > 91.0) then module: 3
+if (Inflow <= 3429.8) and (Inflow > 899.5) and (Storage <= 35961.3) and (Storage > 25940.5) then module: 1
+if (Inflow > 3429.8) and (Storage <= 35961.3) and (DOY <= 53.0) then module: 2
+if (Inflow > 3429.8) and (Storage <= 35961.3) and (DOY <= 345.0) and (DOY > 53.0) then module: 3
+if (Inflow > 3429.8) and (Storage <= 35961.3) and (DOY > 345.0) then module: 2
+if (Inflow <= 3047.9) and (Inflow > 265.0) and (Storage > 35961.3) and (PDSI <= -1.08) and (DOY <= 58.0) then module: 1
+if (Inflow <= 3047.9) and (Inflow > 265.0) and (Storage <= 37892.8) and (Storage > 35961.3) and (PDSI > -1.08) and (DOY <= 58.0) then module: 1
+if (Inflow <= 3047.9) and (Inflow > 265.0) and (Storage > 37892.8) and (PDSI > -1.08) and (DOY <= 58.0) then module: 4
+if (Inflow <= 10926.0) and (Inflow > 3047.9) and (Storage > 35961.3) and (PDSI <= 2.0) and (DOY <= 58.0) then module: 4
+if (Inflow > 10926.0) and (Storage > 35961.3) and (PDSI <= 2.0) and (DOY <= 58.0) then module: 3
+if (Inflow > 3047.9) and (Storage > 35961.3) and (PDSI > 2.0) and (DOY <= 58.0) then module: 1
+if (Inflow > 265.0) and (Storage > 35961.3) and (DOY <= 336.0) and (DOY > 58.0) then module: 1
+if (Inflow <= 1720.8) and (Inflow > 265.0) and (Storage > 35961.3) and (DOY > 336.0) then module: 4
+if (Inflow <= 9746.9) and (Inflow > 1720.8) and (Storage > 35961.3) and (DOY > 336.0) then module: 4
+if (Inflow > 9746.9) and (Storage > 35961.3) and (DOY > 336.0) then module: 0

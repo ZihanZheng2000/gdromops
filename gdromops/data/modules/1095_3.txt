@@ -1,0 +1,14 @@
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage <= 136549.8) and (Storage <= 133850.1) then Release: 9.9
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage <= 136549.8) and (Storage > 133850.1) and (Inflow <= 330.5) and (Storage <= 135349.9) then Release: 86.6
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage <= 136549.8) and (Storage > 133850.1) and (Inflow <= 330.5) and (Storage > 135349.9) then Release: 143.0
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage <= 136549.8) and (Storage > 133850.1) and (Inflow > 330.5) then Release: 215.4
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage > 136549.8) and (Storage <= 137649.9) then Release: 258.8
+if (Storage <= 138999.7) and (Inflow <= 718.0) and (Storage > 136549.8) and (Storage > 137649.9) then Release: 461.5
+if (Storage <= 138999.7) and (Inflow > 718.0) and (Storage <= 133150.0) then Release: 12.8
+if (Storage <= 138999.7) and (Inflow > 718.0) and (Storage > 133150.0) and (Inflow <= 1438.1) and (Inflow <= 1011.8) and (Storage <= 136050.0) then Release: 444.8
+if (Storage <= 138999.7) and (Inflow > 718.0) and (Storage > 133150.0) and (Inflow <= 1438.1) and (Inflow <= 1011.8) and (Storage > 136050.0) then Release: 198.3
+if (Storage <= 138999.7) and (Inflow > 718.0) and (Storage > 133150.0) and (Inflow <= 1438.1) and (Inflow > 1011.8) then Release: 185.2
+if (Storage <= 138999.7) and (Inflow > 718.0) and (Storage > 133150.0) and (Inflow > 1438.1) then Release: 631.4
+if (Storage > 138999.7) and (Storage <= 143749.7) and (Storage <= 140050.0) then Release: 647.1
+if (Storage > 138999.7) and (Storage <= 143749.7) and (Storage > 140050.0) then Release: 955.0
+if (Storage > 138999.7) and (Storage > 143749.7) then Release: 1558.3

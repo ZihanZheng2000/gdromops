@@ -1,0 +1,16 @@
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage <= 20941.9) then Release: 799.9
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage > 20941.9) and (Storage <= 29417.0) and (Storage <= 24586.8) then Release: 1418.4
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage > 20941.9) and (Storage <= 29417.0) and (Storage > 24586.8) and (Inflow <= 770.1) then Release: 2075.3
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage > 20941.9) and (Storage <= 29417.0) and (Storage > 24586.8) and (Inflow > 770.1) then Release: 3209.5
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage > 20941.9) and (Storage > 29417.0) and (Storage <= 31272.8) then Release: 858.5
+if (Storage <= 32245.2) and (Inflow <= 969.8) and (Storage > 20941.9) and (Storage > 29417.0) and (Storage > 31272.8) then Release: 2039.3
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage <= 19807.7) then Release: 1233.2
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage > 19807.7) and (Storage <= 29366.8) and (Storage <= 24731.5) then Release: 2134.6
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage > 19807.7) and (Storage <= 29366.8) and (Storage > 24731.5) and (Inflow <= 2656.6) then Release: 3498.2
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage > 19807.7) and (Storage <= 29366.8) and (Storage > 24731.5) and (Inflow > 2656.6) then Release: 1982.2
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage > 19807.7) and (Storage > 29366.8) and (Storage <= 30403.3) then Release: 1417.5
+if (Storage <= 32245.2) and (Inflow > 969.8) and (Storage > 19807.7) and (Storage > 29366.8) and (Storage > 30403.3) then Release: 2012.0
+if (Storage > 32245.2) and (Storage <= 36946.5) then Release: 2995.4
+if (Storage > 32245.2) and (Storage > 36946.5) and (Inflow <= 1505.0) and (Inflow <= 559.0) then Release: 3604.0
+if (Storage > 32245.2) and (Storage > 36946.5) and (Inflow <= 1505.0) and (Inflow > 559.0) then Release: 4579.1
+if (Storage > 32245.2) and (Storage > 36946.5) and (Inflow > 1505.0) then Release: 3109.4

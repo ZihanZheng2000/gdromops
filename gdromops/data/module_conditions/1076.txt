@@ -1,0 +1,10 @@
+if (Inflow <= 513.4) and (Storage <= 90682.1) then module: 0
+if (Inflow > 513.4) and (Storage <= 90437.5) then module: 0
+if (Inflow <= 577.4) and (Inflow > 513.4) and (Storage <= 90682.1) and (Storage > 90437.5) then module: 0
+if (Inflow > 577.4) and (Storage <= 90682.1) and (Storage > 90437.5) then module: 1
+if (Inflow <= 550.3) and (Storage > 90682.1) and (DOY <= 143.0) then module: 0
+if (Inflow <= 496.5) and (Storage > 90682.1) and (DOY > 143.0) then module: 0
+if (Inflow <= 550.3) and (Inflow > 496.5) and (Storage > 90682.1) and (DOY > 143.0) then module: 1
+if (Inflow <= 628.1) and (Inflow > 550.3) and (Storage > 90682.1) and (DOY <= 68.0) then module: 0
+if (Inflow <= 628.1) and (Inflow > 550.3) and (Storage > 90682.1) and (DOY > 68.0) then module: 1
+if (Inflow > 628.1) and (Storage > 90682.1) then module: 1

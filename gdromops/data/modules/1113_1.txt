@@ -1,0 +1,2 @@
+if (Inflow <= 4.6) then Release: 6.7
+if (Inflow > 4.6) then Release: 14.1

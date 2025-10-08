@@ -1,0 +1,24 @@
+if (Storage <= 407806.0) and (PDSI <= -3.28) and (DOY <= 24.0) then module: 3
+if (Storage <= 407806.0) and (PDSI <= -3.28) and (DOY <= 64.0) and (DOY > 24.0) then module: 0
+if (Storage <= 407806.0) and (PDSI > -3.28) and (DOY <= 64.0) then module: 3
+if (Storage <= 485870.0) and (Storage > 407806.0) and (PDSI <= -2.29) and (DOY <= 64.0) then module: 3
+if (Storage > 485870.0) and (PDSI <= -2.29) and (DOY <= 64.0) then module: 0
+if (Storage > 407806.0) and (PDSI > -2.29) and (DOY <= 64.0) then module: 0
+if (Storage <= 368300.0) and (DOY <= 127.0) and (DOY > 64.0) then module: 3
+if (Storage <= 368300.0) and (DOY <= 208.0) and (DOY > 127.0) then module: 2
+if (Storage <= 368300.0) and (DOY <= 261.0) and (DOY > 208.0) then module: 1
+if (Storage <= 430083.0) and (Storage > 368300.0) and (DOY <= 82.0) and (DOY > 64.0) then module: 0
+if (Storage > 430083.0) and (DOY <= 82.0) and (DOY > 64.0) then module: 2
+if (Inflow <= 5182.7) and (Storage > 368300.0) and (DOY <= 261.0) and (DOY > 82.0) then module: 1
+if (Inflow > 5182.7) and (Storage > 368300.0) and (DOY <= 261.0) and (DOY > 82.0) then module: 2
+if (Storage <= 115670.0) and (PDSI <= -4.08) and (DOY > 261.0) then module: 3
+if (Inflow <= 1044.0) and (Storage <= 349560.0) and (Storage > 115670.0) and (PDSI <= -4.08) and (DOY > 261.0) then module: 0
+if (Inflow > 1044.0) and (Storage <= 349560.0) and (Storage > 115670.0) and (PDSI <= -4.08) and (DOY > 261.0) then module: 3
+if (Storage <= 321892.0) and (PDSI > -4.08) and (DOY > 261.0) then module: 3
+if (Storage <= 349560.0) and (Storage > 321892.0) and (PDSI > -4.08) and (DOY <= 301.0) and (DOY > 261.0) then module: 1
+if (Storage <= 349560.0) and (Storage > 321892.0) and (PDSI > -4.08) and (DOY > 301.0) then module: 3
+if (Storage <= 590585.0) and (Storage > 349560.0) and (PDSI <= -1.19) and (DOY <= 280.0) and (DOY > 261.0) then module: 2
+if (Storage <= 590585.0) and (Storage > 349560.0) and (PDSI > -1.19) and (DOY <= 280.0) and (DOY > 261.0) then module: 0
+if (Storage <= 368452.0) and (Storage > 349560.0) and (DOY > 280.0) then module: 3
+if (Storage <= 590585.0) and (Storage > 368452.0) and (DOY > 280.0) then module: 0
+if (Storage > 590585.0) and (DOY > 261.0) then module: 3

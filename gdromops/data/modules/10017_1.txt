@@ -1,0 +1,6 @@
+if (Inflow <= 4772.8) and (Inflow <= 3398.8) then Release: 488.4
+if (Inflow <= 4772.8) and (Inflow > 3398.8) then Release: 4531.2
+if (Inflow > 4772.8) and (Inflow <= 15402.3) and (Inflow <= 9536.4) and (Inflow <= 6658.6) then Release: 6553.9
+if (Inflow > 4772.8) and (Inflow <= 15402.3) and (Inflow <= 9536.4) and (Inflow > 6658.6) then Release: 8117.0
+if (Inflow > 4772.8) and (Inflow <= 15402.3) and (Inflow > 9536.4) then Release: 10246.6
+if (Inflow > 4772.8) and (Inflow > 15402.3) then Release: 16466.1

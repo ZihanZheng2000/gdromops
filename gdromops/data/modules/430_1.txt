@@ -1,0 +1,16 @@
+if (Storage <= 75718.2) and (Inflow <= 355.5) and (Storage <= 31318.2) then Release: 170.3
+if (Storage <= 75718.2) and (Inflow <= 355.5) and (Storage > 31318.2) and (Storage <= 73891.2) and (Storage <= 71986.5) then Release: 229.1
+if (Storage <= 75718.2) and (Inflow <= 355.5) and (Storage > 31318.2) and (Storage <= 73891.2) and (Storage > 71986.5) and (Inflow <= 75.8) then Release: 76.1
+if (Storage <= 75718.2) and (Inflow <= 355.5) and (Storage > 31318.2) and (Storage <= 73891.2) and (Storage > 71986.5) and (Inflow > 75.8) then Release: 229.9
+if (Storage <= 75718.2) and (Inflow <= 355.5) and (Storage > 31318.2) and (Storage > 73891.2) then Release: 373.1
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow <= 1539.9) and (Storage <= 62426.1) then Release: 267.3
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow <= 1539.9) and (Storage > 62426.1) and (Inflow <= 530.7) then Release: 454.2
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow <= 1539.9) and (Storage > 62426.1) and (Inflow > 530.7) and (Inflow <= 1239.0) and (Storage <= 72633.0) then Release: 386.5
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow <= 1539.9) and (Storage > 62426.1) and (Inflow > 530.7) and (Inflow <= 1239.0) and (Storage > 72633.0) then Release: 649.6
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow <= 1539.9) and (Storage > 62426.1) and (Inflow > 530.7) and (Inflow > 1239.0) then Release: 826.9
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow > 1539.9) and (Storage <= 63051.2) then Release: 377.5
+if (Storage <= 75718.2) and (Inflow > 355.5) and (Inflow > 1539.9) and (Storage > 63051.2) then Release: 1317.8
+if (Storage > 75718.2) and (Storage <= 78220.0) and (Storage <= 77001.9) and (Inflow <= 917.2) then Release: 1028.3
+if (Storage > 75718.2) and (Storage <= 78220.0) and (Storage <= 77001.9) and (Inflow > 917.2) then Release: 1292.6
+if (Storage > 75718.2) and (Storage <= 78220.0) and (Storage > 77001.9) then Release: 1537.5
+if (Storage > 75718.2) and (Storage > 78220.0) then Release: 2048.1

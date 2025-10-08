@@ -1,0 +1,21 @@
+if (Inflow <= 2818.5) and (Storage <= 194920.3) then module: 2
+if (Inflow <= 3016.0) and (Inflow > 2818.5) and (Storage <= 194920.3) then module: 1
+if (Inflow <= 7356.0) and (Inflow > 3016.0) and (Storage <= 194920.3) and (PDSI <= -0.89) then module: 2
+if (Inflow <= 4599.4) and (Inflow > 3016.0) and (Storage <= 194920.3) and (PDSI > -0.89) then module: 1
+if (Inflow <= 7356.0) and (Inflow > 4599.4) and (Storage <= 194920.3) and (PDSI > -0.89) then module: 2
+if (Inflow <= 7356.0) and (Storage <= 205237.6) and (Storage > 194920.3) and (PDSI <= 0.0) and (DOY <= 204.0) then module: 2
+if (Inflow <= 7356.0) and (Storage > 205237.6) and (PDSI <= 0.0) and (DOY <= 204.0) then module: 1
+if (Inflow <= 7356.0) and (Storage > 194920.3) and (PDSI > 0.0) and (DOY <= 204.0) then module: 1
+if (Inflow <= 7356.0) and (Storage > 194920.3) and (DOY > 204.0) then module: 2
+if (Inflow <= 10336.8) and (Inflow > 7356.0) and (Storage <= 194302.0) and (DOY <= 39.0) then module: 1
+if (Inflow <= 10336.8) and (Inflow > 7356.0) and (Storage <= 194302.0) and (DOY > 39.0) then module: 2
+if (Inflow <= 13830.2) and (Inflow > 10336.8) and (Storage <= 194302.0) and (PDSI <= -2.93) then module: 1
+if (Inflow <= 13830.2) and (Inflow > 10336.8) and (Storage <= 194302.0) and (PDSI <= -1.99) and (PDSI > -2.93) then module: 2
+if (Inflow <= 13830.2) and (Inflow > 10336.8) and (Storage <= 194302.0) and (PDSI > -1.99) then module: 1
+if (Inflow <= 11590.5) and (Inflow > 7356.0) and (Storage > 194302.0) then module: 1
+if (Inflow <= 13830.2) and (Inflow > 11590.5) and (Storage <= 198095.8) and (Storage > 194302.0) then module: 1
+if (Inflow <= 13830.2) and (Inflow > 11590.5) and (Storage > 198095.8) then module: 0
+if (Inflow > 13830.2) and (Storage <= 187243.3) and (PDSI <= -0.47) then module: 2
+if (Inflow > 13830.2) and (Storage <= 194154.7) and (Storage > 187243.3) and (PDSI <= -0.47) then module: 1
+if (Inflow > 13830.2) and (Storage <= 194154.7) and (PDSI > -0.47) then module: 1
+if (Inflow > 13830.2) and (Storage > 194154.7) then module: 0

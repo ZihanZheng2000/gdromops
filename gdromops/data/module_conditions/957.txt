@@ -1,0 +1,24 @@
+if (Inflow <= -8.1) then module: 0
+if (Inflow <= 0.0) and (Inflow > -8.1) and (Storage <= 11326.5) then module: 0
+if (Inflow <= 0.0) and (Inflow > -8.1) and (Storage > 11326.5) then module: 2
+if (Inflow <= 0.0) and (Inflow > -0.0) then module: 0
+if (Inflow <= 6.4) and (Inflow > 0.0) and (Storage <= 12980.7) then module: 2
+if (Inflow <= 6.4) and (Inflow > 0.0) and (Storage > 12980.7) and (PDSI <= 3.64) then module: 2
+if (Inflow <= 6.4) and (Inflow > 0.0) and (Storage > 12980.7) and (PDSI > 3.64) then module: 1
+if (Inflow <= 8.9) and (Inflow > 6.4) then module: 0
+if (Inflow <= 27.6) and (Inflow > 8.9) then module: 2
+if (Inflow <= 45.5) and (Inflow > 27.6) and (Storage <= 13006.7) and (PDSI <= -2.08) then module: 2
+if (Inflow <= 45.5) and (Inflow > 27.6) and (Storage > 13006.7) and (PDSI <= -2.08) then module: 1
+if (Inflow <= 45.5) and (Inflow > 27.6) and (PDSI <= 2.22) and (PDSI > -2.08) and (DOY <= 43.0) then module: 1
+if (Inflow <= 45.5) and (Inflow > 27.6) and (PDSI <= 2.22) and (PDSI > -2.08) and (DOY > 43.0) then module: 2
+if (Inflow <= 34.0) and (Inflow > 27.6) and (Storage <= 12463.1) and (PDSI > 2.22) then module: 0
+if (Inflow <= 34.0) and (Inflow > 27.6) and (Storage > 12463.1) and (PDSI > 2.22) then module: 1
+if (Inflow <= 45.5) and (Inflow > 34.0) and (Storage <= 13134.8) and (PDSI > 2.22) then module: 2
+if (Inflow <= 45.5) and (Inflow > 34.0) and (Storage > 13134.8) and (PDSI > 2.22) then module: 0
+if (Inflow > 45.5) and (Storage <= 13091.8) and (PDSI <= -1.87) then module: 2
+if (Inflow > 45.5) and (Storage > 13091.8) and (PDSI <= -1.87) then module: 1
+if (Inflow > 45.5) and (PDSI <= 2.52) and (PDSI > -1.87) then module: 1
+if (Inflow > 45.5) and (Storage <= 12495.9) and (PDSI > 2.52) and (DOY <= 162.0) then module: 0
+if (Inflow > 45.5) and (Storage > 12495.9) and (PDSI > 2.52) and (DOY <= 162.0) then module: 1
+if (Inflow > 45.5) and (PDSI > 2.52) and (DOY <= 294.0) and (DOY > 162.0) then module: 2
+if (Inflow > 45.5) and (PDSI > 2.52) and (DOY > 294.0) then module: 0

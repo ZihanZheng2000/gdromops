@@ -1,0 +1,2 @@
+if (Storage < 275376.5763) then Release: 530.1241
+if (Storage >= 275376.5763) then Release: max(0.0611 * Storage + -15324.6097, 0)

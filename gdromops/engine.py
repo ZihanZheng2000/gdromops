@@ -1,12 +1,18 @@
 
 import pandas as pd
 import numpy as np
-from datetime import datetime
+import os
 import xarray as xr
 
+from datetime import datetime
 
 from .loader import load_ct_text, load_module_text
 from .parser import build_ct_function_from_text, build_module_function_from_text
+
+def _get_data_path(*paths: str) -> str:
+    """Return absolute path to a file inside the package's data directory."""
+    base_dir = os.path.join(os.path.dirname(__file__), "data")
+    return os.path.join(base_dir, *paths)
 
 class RuleEngine:
     def __init__(self, grand_id: str | int):
@@ -25,64 +31,37 @@ class RuleEngine:
             txt = load_module_text(self.grand_id, mid)
             self._modules[mid] = build_module_function_from_text(self.grand_id, mid, txt)
         return self._modules[mid]
+    
+    def GDROM_simulate_one_day(self, inflow: float, doy: int, pdsi: float, storage: float):
+        
+        """
+        Simulate release and updated storage for a single day using GDROM rules.
 
-    def simulate_release(self, df: pd.DataFrame):
-        out = df.copy()
+        Parameters
+        ----------
+        inflow : float
+            Daily inflow to the reservoir.
+        doy : int
+            Day of year (1–366).
+        pdsi : float
+            Palmer Drought Severity Index value for the day.
+        storage : float
+            Current storage before release.
+
+        Returns
+        -------
+        release : float
+            Simulated reservoir release for the day.
+        new_storage : float
+            Updated storage after applying inflow and release.
+        """
+
         self._ensure_ct()
-        sim = []
-        for _, row in out.iterrows():
-            inflow = float(row["Inflow"])
-            storage = float(row["Storage"])
-            doy = int(row["DOY"])
-            pdsi = float(row["PDSI"])
-            module_id = self._ct(inflow, pdsi, doy, storage)
-            mod = self._get_module(module_id)
-            sim.append(mod(inflow, storage))
-        out["simulated_release"] = sim
-        return out
-
-    # def simulate_release_and_storage(self, df: pd.DataFrame, initial_storage: float):
-    #     out = df.copy()
-    #     self._ensure_ct()
-    #     pre_R, pre_S = [], []
-    #     temp_storage = initial_storage
-    #     for _, row in out.iterrows():
-    #         inflow = float(row["Inflow"])
-    #         doy = int(row["DOY"])
-    #         pdsi = float(row["PDSI"])
-    #         module_id = self._ct(inflow, pdsi, doy, temp_storage)
-    #         mod = self._get_module(module_id)
-    #         rel = mod(inflow, temp_storage)
-    #         temp_storage = temp_storage + inflow - (rel if rel is not None else 0.0)
-    #         pre_R.append(rel)
-    #         pre_S.append(temp_storage)
-    #     out["simulated_release"] = pre_R
-    #     out["simulated_storage"] = pre_S
-    #     return out
-
-    def simulate_release_and_storage(self, df: pd.DataFrame, initial_storage: float):
-        out = df.copy()
-        self._ensure_ct()
-        pre_R, pre_S = [], []
-        temp_storage = initial_storage
-        for _, row in out.iterrows():
-            inflow = float(row["Inflow"])
-            doy = int(row["DOY"])
-            pdsi = float(row["PDSI"])
-            module_id = self._ct(inflow, pdsi, doy, temp_storage)
-            mod = self._get_module(module_id)
-            rel = mod(inflow, temp_storage)
-
-            # log BEFORE updating
-            pre_R.append(rel)
-            pre_S.append(temp_storage)
-
-            # update storage for next step
-            temp_storage = temp_storage + inflow - (rel if rel is not None else 0.0)
-
-        out["simulated_release"] = pre_R
-        out["simulated_storage"] = pre_S
-        return out
+        module_id = self._ct(inflow, pdsi, doy, storage)
+        mod = self._get_module(module_id)
+        release = mod(inflow, storage)
+        new_storage = storage + inflow - (release if release is not None else 0.0)
+        return release, new_storage
 
     def GDROM_simulate(
         self,
@@ -92,68 +71,63 @@ class RuleEngine:
         initial_storage: float = None,
         latitude: float = None,
         longitude: float = None,
-        pdsi_nc_path: str = r"D:\GDROM\GDROM v2\gdromops\pdsi.mon.mean.nc"
+        pdsi_nc_path: str = None,  
     ) -> pd.DataFrame:
-        
         """
-        Simulate using GDROM rules.
-
-        Parameters
-        ----------
-        inflow_series : pd.Series with DatetimeIndex (daily)
-            Inflow time series.
-        storage_series : pd.Series, optional
-            Storage time series. If not provided, simulation will be dynamic using initial_storage.
-        pdsi_series : pd.Series, optional
-            PDSI time series. If not provided, it will be extracted from NetCDF using latitude & longitude.
-        initial_storage : float, optional
-            Required if storage_series is not provided.
-        latitude : float, optional
-            Latitude of the site, required if pdsi_series is None.
-        longitude : float, optional
-            Longitude of the site, required if pdsi_series is None.
-        pdsi_nc_path : str
-            Path to NetCDF PDSI dataset.
-
-        Returns
-        -------
-        pd.DataFrame
-            DataFrame with simulated results, indexed by Date.
+        Simulate using GDROM rules (with PDSI handling).
         """
         if not isinstance(inflow_series.index, pd.DatetimeIndex):
             raise ValueError("inflow_series must have a DatetimeIndex.")
 
         df = pd.DataFrame({"Inflow": inflow_series})
+        df["DOY"] = df.index.dayofyear
 
         if storage_series is not None:
             df["Storage"] = storage_series
 
-        # Handle PDSI
+        # --- PDSI (simple & strict) ---
         if pdsi_series is not None:
-            # Reindex provided PDSI to match inflow time axis
+            # Use provided daily PDSI directly
             df["PDSI"] = pdsi_series.reindex(df.index, method="nearest")
         else:
+            # Load package-internal NetCDF (path is guaranteed to exist in your package)
+            if pdsi_nc_path is None:
+                pdsi_nc_path = _get_data_path("pdsi.mon.mean.nc")
+
+            # Require lat/lon if no PDSI series was given
             if latitude is None or longitude is None:
-                raise ValueError("Must provide latitude and longitude if pdsi_series is not given.")
+                raise ValueError(
+                    "latitude and longitude are required when pdsi_series is not provided."
+                )
 
-            # Extract monthly PDSI from NetCDF
-            ds = xr.open_dataset(pdsi_nc_path)
-            point_series = ds['pdsi'].sel(lat=latitude, lon=longitude, method="nearest")
-            pdsi_monthly = point_series.to_series()
+            # Extract nearest grid point for (lat, lon)
+            with xr.open_dataset(pdsi_nc_path) as ds:
+                point_series = ds["pdsi"].sel(lat=latitude, lon=longitude, method="nearest").to_series()
 
-            # Expand to daily frequency using forward fill
-            pdsi_daily = pdsi_monthly.resample("D").ffill()
-
-            # Reindex to match inflow dates
+            # Monthly → daily via forward fill; align to inflow dates
+            pdsi_daily = point_series.resample("D").ffill()
             df["PDSI"] = pdsi_daily.reindex(df.index, method="nearest")
 
-        # Compute day of year
-        df["DOY"] = df.index.dayofyear
+        # Run simulation
+        if storage_series is not None:
+            releases = []
+            for r in df.itertuples():
+                release, _ = self.GDROM_simulate_one_day(r.Inflow, r.DOY, r.PDSI, r.Storage)
+                releases.append(release)
+            df["simulated_release"] = releases
+            df["simulated_storage"] = storage_series
 
-        # Choose simulation mode
-        if "Storage" in df.columns:
-            return self.simulate_release(df)
         else:
             if initial_storage is None:
-                raise ValueError("Need initial_storage if 'Storage' not provided.")
-            return self.simulate_release_and_storage(df, initial_storage)
+                raise ValueError("Need initial_storage if Storage time series not provided.")
+            temp_storage = initial_storage
+            sim_releases, sim_storages = [], []
+            for r in df.itertuples():
+                release, new_storage = self.GDROM_simulate_one_day(r.Inflow, r.DOY, r.PDSI, temp_storage)
+                sim_releases.append(release)
+                sim_storages.append(temp_storage)
+                temp_storage = new_storage
+            df["simulated_release"] = sim_releases
+            df["simulated_storage"] = sim_storages
+
+        return df

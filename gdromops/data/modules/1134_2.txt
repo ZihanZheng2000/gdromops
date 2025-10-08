@@ -1,0 +1,7 @@
+if (Storage <= 147041.9) and (Storage <= 131291.4) and (Storage <= 128547.9) then Release: 47.2
+if (Storage <= 147041.9) and (Storage <= 131291.4) and (Storage > 128547.9) then Release: 192.9
+if (Storage <= 147041.9) and (Storage > 131291.4) and (Storage <= 134629.1) and (Storage <= 133113.8) then Release: 337.5
+if (Storage <= 147041.9) and (Storage > 131291.4) and (Storage <= 134629.1) and (Storage > 133113.8) then Release: 456.2
+if (Storage <= 147041.9) and (Storage > 131291.4) and (Storage > 134629.1) and (Storage <= 136190.9) then Release: 591.7
+if (Storage <= 147041.9) and (Storage > 131291.4) and (Storage > 134629.1) and (Storage > 136190.9) then Release: 769.5
+if (Storage > 147041.9) then Release: 1813.5
