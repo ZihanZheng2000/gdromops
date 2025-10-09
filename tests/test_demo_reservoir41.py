@@ -1,5 +1,5 @@
-# import os, sys
-# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import pandas as pd
 import matplotlib.pyplot as plt
 from gdromops import RuleEngine
@@ -10,7 +10,10 @@ from gdromops import RuleEngine
 grand_id = "41"
 engine = RuleEngine(grand_id)
 
-df = pd.read_csv("example_data_reservoir41.csv", parse_dates=["Date"])
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(current_dir, "example_data_reservoir41.csv")
+
+df = pd.read_csv(data_path, parse_dates=["Date"])
 df = df.set_index("Date")
 
 # Common input data
