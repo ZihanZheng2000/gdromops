@@ -122,17 +122,14 @@ python -m tests.test_demo_reservoir41
 
 ## Citation
 
-If you use `gdromops` or the GDROM v2 dataset in your research, please cite both the dataset and the software:
+If you use `gdromops` or the GDROM v2 dataset in your research, please cite the dataset or the software:
 
 **Dataset citation**  
-Zheng, Z., Cai, X., Zhang, L., Li, J., & Chen, Y. (2025).  
-*GDROM v2: An inventory of operation variable time series and rules for 2,017 reservoirs across the CONUS.*  
-Scientific Data, Nature Portfolio. [DOI:10.1038/s41597-025-XXXX-Y]
+Zheng, Z., X. Cai, Y. Chen (2025). GDROM v2: An Inventory of Operation Variables Time Series and Rules for 2,017 Large Reservoirs across the CONUS, HydroShare, https://doi.org/10.4211/hs.5293674cb83b4ec698db0eb4777467b8
 
 **Software citation**  
-Zheng, Z. (2025).  
-*gdromops: A Python package for simulating reservoir operations using GDROM rules.*  
-Journal of Open Source Software. [DOI:10.21105/joss.xxxxx]
+Zheng, Z., et al. (2025). gdromops: A Python package for simulating reservoir operations using GDROM rules.
+Journal of Open Source Software. Under Review.
 
 ---
 
