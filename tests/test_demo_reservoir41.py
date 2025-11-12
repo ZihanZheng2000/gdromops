@@ -163,7 +163,7 @@ pdsi = float(df.loc[test_date, "PDSI"]) if "PDSI" in df.columns else 0.0
 
 # === choose your timestep_hours ===
 timestep_hours = 0.0833   
-inflow_t = inflow * (timestep_hours / 24.0)
+inflow_t = inflow * timestep_hours
 
 # === 调用统一函数 ===
 release_t, new_storage_t = engine.GDROM_simulate_timestep(

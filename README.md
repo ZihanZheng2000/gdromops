@@ -50,36 +50,52 @@ from gdromops import RuleEngine
 # Initialize RuleEngine for a given reservoir
 engine = RuleEngine("41")
 
-# Load input data
+# Load input data (example)
 df = pd.read_csv("example_data_reservoir41.csv", parse_dates=["Date"]).set_index("Date")
-
 inflow = df["Inflow"]
 storage = df["Storage"]
 pdsi = df["PDSI"] if "PDSI" in df.columns else None
 initial_storage = float(storage.iloc[0])
 
-# ---- Case 1: Single-day simulation ----
+# ---- Case 1: Simulate a Single Day ----
 date = df.index[0]
 release, new_storage = engine.GDROM_simulate_one_day(
-    inflow=float(df.loc[date, "Inflow"]),
+    inflow=float(inflow.loc[date]),
     doy=int(date.dayofyear),
-    pdsi=float(df.loc[date, "PDSI"]),
-    storage=float(df.loc[date, "Storage"])
+    pdsi=float(pdsi.loc[date]) if pdsi is not None else 0.0,
+    storage=float(storage.loc[date]),
 )
 print(f"Release = {release:.2f}, New Storage = {new_storage:.2f}")
 
-# ---- Case 2: Multi-day (with observed storage) ----
-result_case2 = engine.GDROM_simulate(inflow_series=inflow, storage_series=storage, pdsi_series=pdsi)
+# ---- Case 2: Simulate a Multi-day Period (with observed storage) ----
+result_case2 = engine.GDROM_simulate(
+    inflow_series=inflow,
+    storage_series=storage,
+    pdsi_series=pdsi,
+)
 
-# ---- Case 3: Multi-day (with initial storage only) ----
-result_case3 = engine.GDROM_simulate(inflow_series=inflow, initial_storage=initial_storage, pdsi_series=pdsi)
+# ---- Case 3: Multi-day Simulation (with initial storage only) ----
+result_case3 = engine.GDROM_simulate(
+    inflow_series=inflow,
+    initial_storage=initial_storage,
+    pdsi_series=pdsi,
+)
 
-# ---- Case 4: Automatic PDSI extraction from lat/lon ----
+# ---- Case 4: Auto-fetch PDSI from Location ----
 result_case4 = engine.GDROM_simulate(
     inflow_series=inflow,
     initial_storage=initial_storage,
     latitude=48.7325,
     longitude=-121.0673,
+)
+
+# ---- Case 5: Use a Different Timestep (e.g., 1 hour or 5 min) ----
+release_t, new_storage_t = engine.GDROM_simulate_timestep(
+    inflow=0.5,          # inflow for one timestep
+    doy=150,             # day of year
+    pdsi=-1.2,           # drought index
+    storage=120.0,       # current storage
+    timestep_hours=1.0,  # e.g., 1 hr (0.0833 for 5 min)
 )
 ```
 
