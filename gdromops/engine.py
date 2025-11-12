@@ -6,8 +6,8 @@ import xarray as xr
 
 from datetime import datetime
 
-from .loader import load_ct_text, load_module_text
-from .parser import build_ct_function_from_text, build_module_function_from_text
+from gdromops.loader import load_ct_text, load_module_text
+from gdromops.parser import build_ct_function_from_text, build_module_function_from_text
 
 def _get_data_path(*paths: str) -> str:
     """Return absolute path to a file inside the package's data directory."""
@@ -62,6 +62,73 @@ class RuleEngine:
         release = mod(inflow, storage)
         new_storage = storage + inflow - (release if release is not None else 0.0)
         return release, new_storage
+    
+    def GDROM_simulate_5min(self, inflow: float, doy: int, pdsi: float, storage: float):
+        """
+        Simulate release and updated storage for a single 5-minute interval using GDROM rules.
+
+        Parameters
+        ----------
+        inflow : float
+            5-minute inflow to the reservoir.
+        """
+        inflow_daily = inflow * 288  # Convert to daily inflow
+        release_daily, _ = self.GDROM_simulate_one_day(
+            inflow_daily, doy, pdsi, storage
+        )
+        release = release_daily / 288  # Convert back to 5-minute  
+        new_storage = storage + inflow - (release if release is not None else 0.0)
+        return release, new_storage
+    
+    def GDROM_simulate_1hr(self, inflow: float, doy: int, pdsi: float, storage: float):
+        """
+        Simulate release and updated storage for a single 1 hour interval using GDROM rules.
+
+        Parameters
+        ----------
+        inflow : float
+            1-hour inflow to the reservoir.
+        """
+        inflow_daily = inflow * 24  # Convert to daily inflow
+        release_daily, _ = self.GDROM_simulate_one_day(
+            inflow_daily, doy, pdsi, storage
+        )
+        release = release_daily / 24 # Convert back to 1 hr
+        new_storage = storage + inflow - (release if release is not None else 0.0)
+        return release, new_storage
+    
+    def GDROM_simulate_timestep(self, inflow: float, doy: int, pdsi: float, storage: float, timestep_hours: float):
+        """
+        Simulate release and updated storage for a single time step using GDROM rules.
+
+        Parameters
+        ----------
+        inflow : float
+            Inflow volume for the given timestep (e.g., 5min, 1hr, etc.).
+        doy : int
+            Day of year (1–366).
+        pdsi : float
+            Palmer Drought Severity Index value for the day.
+        storage : float
+            Current storage before release.
+        timestep_hours : float
+            Length of the timestep in hours (e.g., 1 for hourly, 0.0833 for 5min).
+
+        Returns
+        -------
+        release : float
+            Simulated release for the timestep.
+        new_storage : float
+            Updated storage after applying inflow and release.
+        """
+
+        inflow_daily = inflow * (24 / timestep_hours)
+        release_daily, _ = self.GDROM_simulate_one_day(inflow_daily, doy, pdsi, storage)
+        release = release_daily * (timestep_hours / 24)
+        new_storage = storage + inflow - (release if release is not None else 0.0)
+
+        return release, new_storage
+        
 
     def GDROM_simulate(
         self,

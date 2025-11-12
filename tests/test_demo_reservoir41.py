@@ -27,6 +27,7 @@ pdsi = df["PDSI"] if "PDSI" in df.columns else None
 # ============== Case 1: One-day simulation ================
 # ==========================================================
 print("=== Case 1: One-day simulation ===")
+
 test_date = df.index[0]
 inflow_1d = float(df.loc[test_date, "Inflow"])
 storage_1d = float(df.loc[test_date, "Storage"])
@@ -149,4 +150,32 @@ ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="upper right")
 plt.tight_layout()
 plt.show()
 
+# ==========================================================
+# ============== Case 5: With Different Timestep ==========
+# ==========================================================
+print("=== Case 5: Variable-timestep simulation ===")
 
+test_date = df.index[0]
+inflow = float(df.loc[test_date, "Inflow"])
+storage = float(df.loc[test_date, "Storage"])
+doy = int(test_date.dayofyear)
+pdsi = float(df.loc[test_date, "PDSI"]) if "PDSI" in df.columns else 0.0
+
+# === choose your timestep_hours ===
+timestep_hours = 0.0833   
+inflow_t = inflow * (timestep_hours / 24.0)
+
+# === 调用统一函数 ===
+release_t, new_storage_t = engine.GDROM_simulate_timestep(
+    inflow=inflow_t,
+    doy=doy,
+    pdsi=pdsi,
+    storage=storage,
+    timestep_hours=timestep_hours,
+)
+
+print(
+    f"Date: {test_date.date()} | Δt = {timestep_hours:.4f} hr | "
+    f"Inflow: {inflow_t:.2f} | Storage: {storage:.2f} | "
+    f"Release: {release_t:.4f} | New Storage: {new_storage_t:.2f}\n"
+)
