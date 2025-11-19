@@ -7,13 +7,7 @@ It is designed for research and applications in large-scale reservoir system mod
 
 ## Installation
 
-Install from PyPI (stable release):
-
-```bash
-pip install gdromops
-```
-
-Or from GitHub (latest development version):
+Install from GitHub (latest development version):
 
 ```bash
 pip install git+https://github.com/ZihanZheng2000/gdromops.git
@@ -35,8 +29,8 @@ gdromops/
 │   └── modules/                      # Rule modules (release formulas)
 └── ...
 tests/
-├── test_demo_reservoir41.py          # Example usage
-├── example_data_reservoir41.csv
+├── test_demo_reservoir449.py          # Example usage
+├── example_data_reservoir449.csv
 ```
 
 ---
@@ -48,24 +42,23 @@ import pandas as pd
 from gdromops import RuleEngine
 
 # Initialize RuleEngine for a given reservoir
-engine = RuleEngine("41")
+engine = RuleEngine("449")
 
 # Load input data (example)
-df = pd.read_csv("example_data_reservoir41.csv", parse_dates=["Date"]).set_index("Date")
+df = pd.read_csv("example_data_reservoir449.csv", parse_dates=["Date"]).set_index("Date")
 inflow = df["Inflow"]
 storage = df["Storage"]
-pdsi = df["PDSI"] if "PDSI" in df.columns else None
+pdsi = df["PDSI"]
 initial_storage = float(storage.iloc[0])
 
 # ---- Case 1: Simulate a Single Day ----
 date = df.index[0]
 release, new_storage = engine.GDROM_simulate_one_day(
-    inflow=float(inflow.loc[date]),
-    doy=int(date.dayofyear),
-    pdsi=float(pdsi.loc[date]) if pdsi is not None else 0.0,
-    storage=float(storage.loc[date]),
+    inflow=5,            # inflow for one timestep
+    doy=150,             # day of year
+    pdsi=-1.2,           # drought index
+    storage=120.0,       # current storage
 )
-print(f"Release = {release:.2f}, New Storage = {new_storage:.2f}")
 
 # ---- Case 2: Simulate a Multi-day Period (with observed storage) ----
 result_case2 = engine.GDROM_simulate(
@@ -91,50 +84,27 @@ result_case4 = engine.GDROM_simulate(
 
 # ---- Case 5: Use a Different Timestep (e.g., 1 hour or 5 min) ----
 release_t, new_storage_t = engine.GDROM_simulate_timestep(
-    inflow=0.5,          # inflow for one timestep
-    doy=150,             # day of year
-    pdsi=-1.2,           # drought index
-    storage=120.0,       # current storage
+    inflow=0.5,          
+    doy=150,             
+    pdsi=-1.2,           
+    storage=120.0,       
     timestep_hours=1.0,  # e.g., 1 hr (0.0833 for 5 min)
 )
 ```
 
 ---
 
-## Output Example
-
-Each simulation returns a DataFrame with:
-
-| Column | Description |
-|:---|:---|
-| Inflow | Daily inflow (input) |
-| PDSI | Palmer Drought Severity Index |
-| DOY | Day of year |
-| simulated_release | GDROM-predicted release |
-| simulated_storage | Updated storage (after inflow/release balance) |
-
----
-
 ## Demo
 
-Example data (`example_data_reservoir41.csv`) and test script (`test_demo_reservoir41.py`) are included under `tests/`.  
+Example data (`example_data_reservoir449.csv`) and test script (`test_demo_reservoir449.py`) are included under `tests/`.  
 Run all four demo cases with:
 
 ```bash
-python -m tests.test_demo_reservoir41
+python -m tests.test_demo_reservoir449
 ```
 
 ---
 
-## Features
-
-- Hybrid rule-based simulation (CART + module functions)  
-- Automatic PDSI lookup from NetCDF (lat/lon)  
-- Support for data-rich and data-limited reservoirs  
-- Seamless integration with GDROM v2 dataset  
-- Lightweight and fully open-source
-
----
 
 ## Citation
 
@@ -144,8 +114,7 @@ If you use `gdromops` or the GDROM v2 dataset in your research, please cite the 
 Zheng, Z., X. Cai, Y. Chen (2025). GDROM v2: An Inventory of Operation Variables Time Series and Rules for 2,017 Large Reservoirs across the CONUS, HydroShare, https://doi.org/10.4211/hs.5293674cb83b4ec698db0eb4777467b8
 
 **Software citation**  
-Zheng, Z., et al. (2025). gdromops: A Python package for simulating reservoir operations using GDROM rules.
-Journal of Open Source Software. Under Review.
+Zheng, Z., et al. (2025). gdromops: A Python package for simulating reservoir operations using GDROM rules. Journal of Open Source Software. Under Review.
 
 ---
 

@@ -7,11 +7,11 @@ from gdromops import RuleEngine
 # ==========================================================
 # ============== Initialize and load data ==================
 # ==========================================================
-grand_id = "41"
+grand_id = "449"
 engine = RuleEngine(grand_id)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(current_dir, "example_data_reservoir41.csv")
+data_path = os.path.join(current_dir, "example_data_reservoir449.csv")
 
 df = pd.read_csv(data_path, parse_dates=["Date"])
 df = df.set_index("Date")
