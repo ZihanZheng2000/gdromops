@@ -19,7 +19,7 @@ authors:
 
   - name: Yanan Chen
     orcid: 0009-0004-1616-4656
-    affiliation: #1, 2#
+    affiliation: "1, 2"
 
   - name: Anav Vora
     orcid: 0000-0002-9881-9537
@@ -27,7 +27,7 @@ authors:
 
   - name: Xin Lan
     orcid: 0000-0002-0607-2270
-    affiliation: #3, 4#
+    affiliation: "3, 4"
 
 affiliations:
   - name: Department of Civil and Environmental Engineering, University of Illinois Urbana-Champaign, United States
@@ -41,6 +41,10 @@ affiliations:
 
   - name: Environmental Science and Policy Program, Michigan State University, United States
     index: 4
+
+date: 1 January 2026
+
+bibliography: paper.bib
 ---
 
 # Summary
