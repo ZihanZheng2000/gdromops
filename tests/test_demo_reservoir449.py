@@ -3,6 +3,7 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import pandas as pd
 import matplotlib.pyplot as plt
 from gdromops import RuleEngine
+from gdromops.training import train_res_r_from_paths
 
 # ==========================================================
 # ============== Initialize and load data ==================
@@ -12,6 +13,7 @@ engine = RuleEngine(grand_id)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(current_dir, "example_data_reservoir449.csv")
+training_out_root = os.path.join(current_dir, "demo_training_out_449")
 
 df = pd.read_csv(data_path, parse_dates=["Date"])
 df = df.set_index("Date")
@@ -22,6 +24,28 @@ storage = df["Storage"]
 release = df["Release"] if "Release" in df.columns else None
 initial_storage = float(storage.iloc[0])
 pdsi = df["PDSI"] if "PDSI" in df.columns else None
+
+# ==========================================================
+# ============== Case 0: Train Res_R model =================
+# ==========================================================
+print("=== Case 0: Train Res_R model (input_max_storage mode) ===")
+
+train_result = train_res_r_from_paths(
+    target_id=grand_id,
+    target_data_path=data_path,
+    summary_path=None,
+    output_root=training_out_root,
+    its_values=(6, 7, 8),
+    storage_cap_source="input_max_storage",
+)
+
+print(
+    f"Training done | best_its={train_result['best_its']} | "
+    f"best_num_state={train_result['best_num_state']} | "
+    f"storage_cap_used={train_result['storage_cap_used']:.4f}"
+)
+print(f"Training summary: {train_result['training_summary_path']}")
+print(f"Rules folder: {os.path.join(training_out_root, 'Res_R', 'modules')}\n")
 
 # ==========================================================
 # ============== Case 1: One-day simulation ================

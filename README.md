@@ -9,8 +9,29 @@ It is designed for reproducible data-driven reservoir operation workflows.
 
 ## Installation
 
+### A) Use pre-trained rules only (simulation)
+
+Recommended on modern Python (for example 3.10+):
+
 ```bash
+pip install -r requirements.txt
 pip install git+https://github.com/ZihanZheng2000/gdromops.git
+```
+
+### B) Train GDROM (Res_R)
+
+Use the pinned Python 3.6.8 environment:
+
+```bash
+conda env create -f environment.yml
+conda activate gdromops_train_py36
+pip install git+https://github.com/ZihanZheng2000/gdromops.git
+```
+
+You can also install the same pinned training stack with:
+
+```bash
+pip install -r requirements-train-py36.txt
 ```
 
 ## Core Capabilities
@@ -22,6 +43,11 @@ pip install git+https://github.com/ZihanZheng2000/gdromops.git
   - `Res_R/module_conditions/<GRAND_ID>.txt`
   - `Res_R/modules/<GRAND_ID>_<module_id>.txt`
 - Training summary export (`training_summary.csv`)
+
+## Environment Notes
+
+- If you only use trained rules (`RuleEngine` simulation), modern Python environments are acceptable.
+- If you train GDROM (`gdromops-train-res-r`), use **Python 3.6.8** for stable and reproducible behavior.
 
 ## Quick Start: RuleEngine
 
@@ -67,6 +93,8 @@ python -m tests.test_demo_reservoir449
 
 ## Train Res_R (CLI)
 
+Training is validated in **Python 3.6.8** (`environment.yml`).
+
 Entry point:
 
 ```bash
@@ -87,7 +115,7 @@ gdromops-train-res-r \
   --its-values 6,7,8
 ```
 
-### Mode B: Auto derive storage cap from data (`data_max`)
+### Mode B: Auto derive storage cap from data (`input_max_storage`)
 
 Use this when storage cap should be inferred from the input file itself:
 
@@ -99,7 +127,7 @@ Use this when storage cap should be inferred from the input file itself:
 gdromops-train-res-r \
   --target-id 449 \
   --target-data-path "path/to/example_data_reservoir449.csv" \
-  --storage-cap-source data_max \
+  --storage-cap-source input_max_storage \
   --output-root "path/to/output" \
   --its-values 6,7,8
 ```
@@ -120,10 +148,10 @@ from gdromops.training import train_res_r_from_paths
 result = train_res_r_from_paths(
     target_id="449",
     target_data_path="path/to/example_data_reservoir449.csv",
-    summary_path=None,                 # not needed when storage_cap_source="data_max"
+    summary_path=None,                 # not needed when storage_cap_source="input_max_storage"
     output_root="path/to/output",
     its_values=(6, 7, 8),
-    storage_cap_source="data_max",     # "summary" or "data_max"
+    storage_cap_source="input_max_storage",     # "summary" or "input_max_storage"
 )
 
 print(result["best_its"], result["best_num_state"])
@@ -138,7 +166,7 @@ Run the following command from the repository root to reproduce a full Res_R tra
 gdromops-train-res-r \
   --target-id 449 \
   --target-data-path "tests/example_data_reservoir449.csv" \
-  --storage-cap-source data_max \
+  --storage-cap-source input_max_storage \
   --output-root "tests/mre_out_449" \
   --its-values 6,7,8
 ```
@@ -151,7 +179,7 @@ Expected outputs:
 
 The CLI JSON output should also include:
 
-- `"storage_cap_source": "data_max"`
+- `"storage_cap_source": "input_max_storage"`
 - `"storage_cap_used": <max Storage in input csv>`
 - `"normalization_applied": true`
 

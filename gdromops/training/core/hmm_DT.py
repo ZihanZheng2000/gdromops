@@ -279,8 +279,8 @@ class GaussianHMM(_BaseHMM):
             try_once.iniassign = labels
             try_once.n_iter = self.trials_iter
             try_once.fit(O,F,lengths)
-            current_best = try_once.best_model if try_once.best_model is not None else copy.deepcopy(try_once)
-            current_high_fit = getattr(getattr(current_best, "monitor_", None), "best_fit", -np.inf)
+            current_best  = try_once.best_model
+            current_high_fit = current_best.monitor_.best_fit
             current_labels = labels
             
             for ii in range(self.trials):
@@ -297,8 +297,8 @@ class GaussianHMM(_BaseHMM):
                 labels=kmeans.predict(data_scaled)
                 try_second.iniassign = labels
                 try_second.fit(O,F,lengths)
-                second_best = try_second.best_model if try_second.best_model is not None else copy.deepcopy(try_second)
-                second_high_fit = getattr(getattr(second_best, "monitor_", None), "best_fit", -np.inf)
+                second_best  = try_second.best_model
+                second_high_fit = second_best.monitor_.best_fit
                 second_labels = labels
                 
                 if second_high_fit > current_high_fit:

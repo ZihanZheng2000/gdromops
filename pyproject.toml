@@ -12,7 +12,7 @@ authors = [
 ]
 license = {file = "LICENSE"}
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.6"
 dependencies = [
     "numpy",
     "scipy",
@@ -25,6 +25,7 @@ dependencies = [
 keywords = ["reservoir", "hydrology", "data-driven", "GDROM", "water resources"]
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]

@@ -1,4 +1,4 @@
-﻿#%%
+#%%
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
@@ -10,43 +10,6 @@ from .metric import *
 def create_gaussian_hmm(inimodel, n_components, **kwargs):
     """Create a local GaussianHMM without patching site-packages."""
     return GaussianHMM(inimodel, n_components=n_components, **kwargs)
-
-
-def _sanitize_hmm_probabilities(model, n_states):
-    """
-    For newer hmmlearn versions, decode() can fail if transmat_ / startprob_
-    contain NaN or rows do not sum to 1.
-    """
-    if not hasattr(model, "transmat_"):
-        return
-    k = int(n_states)
-    trans = np.asarray(model.transmat_, dtype=float)
-    if trans.shape != (k, k):
-        trans = np.full((k, k), 1.0 / k, dtype=float)
-    for i in range(k):
-        row = np.nan_to_num(trans[i], nan=0.0, posinf=0.0, neginf=0.0)
-        row[row < 0] = 0.0
-        s = row.sum()
-        if s <= 0:
-            row[:] = 1.0 / k
-        else:
-            row[:] = row / s
-        trans[i] = row
-    model.transmat_ = trans
-
-    if hasattr(model, "startprob_"):
-        start = np.asarray(model.startprob_, dtype=float).reshape(-1)
-        if start.shape[0] != k:
-            start = np.full(k, 1.0 / k, dtype=float)
-        start = np.nan_to_num(start, nan=0.0, posinf=0.0, neginf=0.0)
-        start[start < 0] = 0.0
-        ss = start.sum()
-        if ss <= 0:
-            start[:] = 1.0 / k
-        else:
-            start[:] = start / ss
-        model.startprob_ = start
-
 
 def train_hmdt(train_data, impurity):
 
@@ -83,7 +46,7 @@ def train_hmdt(train_data, impurity):
             model = model.best_model
             trained_models.append(model)
         except Exception as e:
-            print(f"n_components={i}: {e}")
+            print("n_components={i}: {e}")
             continue
 
     return trained_models
@@ -91,7 +54,7 @@ def train_hmdt(train_data, impurity):
 def validate_hmdt(validation_data, trained_model):
 
     """
-    Validate HMDT models on NSE (Nashâ€“Sutcliffe Efficiency).
+    Validate HMDT models on NSE (Nash–Sutcliffe Efficiency).
 
     Parameters:
         validation_data: DataFrame with ['Inflow', 'Storage', 'Release']
@@ -107,11 +70,7 @@ def validate_hmdt(validation_data, trained_model):
     nse_scores = []
     for model in trained_model:
         try:
-            try:
-                logprob, state_sequence = model.decode(O_val, F_val)
-            except ValueError:
-                _sanitize_hmm_probabilities(model, model.n_components)
-                logprob, state_sequence = model.decode(O_val, F_val)
+            logprob, state_sequence = model.decode(O_val, F_val)
             result = np.zeros(O_val.shape[0])
 
             for j in range(model.n_components):
@@ -145,11 +104,7 @@ def validate_hmdt_pbias(validation_data, trained_model):
     pbias_scores = []
     for model in trained_model:
         try:
-            try:
-                logprob, state_sequence = model.decode(O_val, F_val)
-            except ValueError:
-                _sanitize_hmm_probabilities(model, model.n_components)
-                logprob, state_sequence = model.decode(O_val, F_val)
+            logprob, state_sequence = model.decode(O_val, F_val)
             result = np.zeros(O_val.shape[0])
 
             for j in range(model.n_components):
@@ -181,12 +136,8 @@ def train_cart_model(train_data, hmdt_model, best_num_state):
     O = train_data['Release'].values.reshape(-1, 1)
     F = train_data[['Inflow', 'Storage']].values
 
-    try:
-        hmdt_model.transmat_[np.sum(hmdt_model.transmat_, axis=1) == 0] = 1 / best_num_state
-        _, state_sequence = hmdt_model.decode(O, F)
-    except ValueError:
-        _sanitize_hmm_probabilities(hmdt_model, best_num_state)
-        _, state_sequence = hmdt_model.decode(O, F)
+    hmdt_model.transmat_[np.sum(hmdt_model.transmat_, axis=1) == 0] = 1 / best_num_state
+    _, state_sequence = hmdt_model.decode(O, F)
     train_data['Module'] = state_sequence
 
     train_y = train_data['Module'].values
@@ -290,7 +241,7 @@ def plot_best_model(train_data, validation_data, its_values=[6, 7, 8]):
     fontsize = 13
     plt.figure(figsize=(10, 5)) 
     for its, scores in nse_scores.items():
-        plt.plot(range(1, len(scores) + 1), scores, label=f'$\\mathregular{{ITS_{{min}} = 10^{{-{its}}}}}$')
+        plt.plot(range(1, len(scores) + 1), scores, label=f'$\mathregular{{ITS_{{min}} = 10^{{-{its}}}}}$')
     
     plt.xlabel('Number of modules (K)', fontsize=fontsize, fontweight='black')
     plt.ylabel('NSE', fontsize=fontsize, fontweight='black')

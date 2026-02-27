@@ -87,6 +87,13 @@ def _load_storage_cap_from_summary(summary_path: Path, target_id: str) -> float:
     return float(summary_match.iloc[0]["STORAGE_CAP"])
 
 
+def _normalize_storage_cap_source(raw: str) -> str:
+    token = str(raw).strip().lower()
+    if token == "data_max":
+        return "input_max_storage"
+    return token
+
+
 def _split_data(target_data: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     n_total = len(target_data)
     train_end = int(0.64 * n_total)
@@ -270,13 +277,15 @@ def train_res_r_from_paths(
     target_id_str = str(target_id).strip()
     cleaned_data = _prepare_target_data(pd.read_csv(target_data_path))
 
+    storage_cap_source = _normalize_storage_cap_source(storage_cap_source)
+
     if storage_cap_source == "summary":
         if summary_path_obj is None:
             raise ValueError("summary_path is required when storage_cap_source='summary'.")
         storage_cap = _load_storage_cap_from_summary(summary_path_obj, target_id_str)
         normalized_data = cleaned_data
         normalization_applied = False
-    elif storage_cap_source == "data_max":
+    elif storage_cap_source == "input_max_storage":
         storage_cap = float(cleaned_data["Storage"].max())
         normalized_data = _normalize_by_storage_cap(cleaned_data, storage_cap)
         normalization_applied = True

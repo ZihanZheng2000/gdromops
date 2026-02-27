@@ -3,11 +3,10 @@ from __future__ import print_function
 import string
 import sys
 from collections import deque
-from pprint import pformat
 
 import numpy as np
 from scipy.special import logsumexp
-from sklearn.base import BaseEstimator
+from sklearn.base import BaseEstimator, _pprint
 from sklearn.utils import check_array, check_random_state
 from sklearn.utils.validation import check_is_fitted
 #import matplotlib.pyplot as plt
@@ -36,18 +35,6 @@ except Exception:
         def log_mask_zero(a):
             with np.errstate(divide="ignore"):
                 return np.log(a)
-
-
-def _pretty_params(params, offset=0):
-    """
-    Compatibility pretty-printer for estimator repr across sklearn versions.
-    """
-    try:
-        from sklearn.base import _pprint as sklearn_pprint  # older sklearn
-
-        return sklearn_pprint(params, offset=offset)
-    except Exception:
-        return pformat(params)
 
 
 #: Supported decoder algorithms.
@@ -92,7 +79,7 @@ class ConvergenceMonitor(object):
         self.iter = 0
         self.model = None
         self.best_iter = 0
-        self.best_fit = -np.inf
+        self.best_fit = -1e10
         self.best_model = None
         #self.lastmodel = None
 
@@ -100,7 +87,7 @@ class ConvergenceMonitor(object):
         class_name = self.__class__.__name__
         params = dict(vars(self), history=list(self.history))
         return "{0}({1})".format(
-            class_name, _pretty_params(params, offset=len(class_name)))
+            class_name, _pprint(params, offset=len(class_name)))
 
     def report(self, logprob, model):
         """Reports convergence to :data:`sys.stderr`.
@@ -124,7 +111,7 @@ class ConvergenceMonitor(object):
 
         self.history.append(logprob)
         self.iter += 1
-        if self.best_model is None or (np.isfinite(logprob) and logprob > self.best_fit):
+        if logprob > self.best_fit:
             self.best_iter = self.iter
             self.best_fit = logprob
             self.best_model = copy.deepcopy(model)
@@ -506,16 +493,10 @@ class _BaseHMM(BaseEstimator):
             self.logprob = curr_logprob
             # if (self.monitor_.converged and self.model_updated):
             if (self.monitor_.converged):
-                if self.monitor_.best_model is None:
-                    self.best_model = copy.deepcopy(self)
-                else:
-                    self.best_model = copy.deepcopy(self.monitor_.best_model)
+                self.best_model = copy.deepcopy(self.monitor_.best_model)
                 break
             
             # self.model_updated = False
-
-        if self.best_model is None:
-            self.best_model = copy.deepcopy(self)
 
         return self
     
@@ -533,52 +514,30 @@ class _BaseHMM(BaseEstimator):
             
             
     def _do_viterbi_pass(self, framelogprob):
-        if hasattr(_hmmc, "_viterbi"):
-            n_samples, n_components = framelogprob.shape
-            state_sequence, logprob = _hmmc._viterbi(
-                n_samples, n_components, log_mask_zero(self.startprob_),
-                log_mask_zero(self.transmat_), framelogprob)
-        else:
-            logprob, state_sequence = _hmmc.viterbi(
-                log_mask_zero(self.startprob_),
-                log_mask_zero(self.transmat_),
-                framelogprob,
-            )
+        n_samples, n_components = framelogprob.shape
+        state_sequence, logprob = _hmmc._viterbi(
+            n_samples, n_components, log_mask_zero(self.startprob_),
+            log_mask_zero(self.transmat_), framelogprob)
         return logprob, state_sequence
 
     def _do_forward_pass(self, framelogprob):
-        if hasattr(_hmmc, "_forward"):
-            n_samples, n_components = framelogprob.shape
-            fwdlattice = np.zeros((n_samples, n_components))
-            _hmmc._forward(n_samples, n_components,
-                           log_mask_zero(self.startprob_),
-                           log_mask_zero(self.transmat_),
-                           framelogprob, fwdlattice)
-            logprob = logsumexp(fwdlattice[-1])
-        else:
-            logprob, fwdlattice = _hmmc.forward_log(
-                log_mask_zero(self.startprob_),
-                log_mask_zero(self.transmat_),
-                framelogprob,
-            )
+        n_samples, n_components = framelogprob.shape
+        fwdlattice = np.zeros((n_samples, n_components))
+        _hmmc._forward(n_samples, n_components,
+                       log_mask_zero(self.startprob_),
+                       log_mask_zero(self.transmat_),
+                       framelogprob, fwdlattice)
         
         with np.errstate(under="ignore"):
-            return logprob, np.nan_to_num(fwdlattice, posinf=1e10, neginf=-1e10)
+            return logsumexp(fwdlattice[-1]), np.nan_to_num(fwdlattice, posinf=1e10, neginf=-1e10)
 
     def _do_backward_pass(self, framelogprob):
-        if hasattr(_hmmc, "_backward"):
-            n_samples, n_components = framelogprob.shape
-            bwdlattice = np.zeros((n_samples, n_components))
-            _hmmc._backward(n_samples, n_components,
-                            log_mask_zero(self.startprob_),
-                            log_mask_zero(self.transmat_),
-                            framelogprob, bwdlattice)
-        else:
-            bwdlattice = _hmmc.backward_log(
-                log_mask_zero(self.startprob_),
-                log_mask_zero(self.transmat_),
-                framelogprob,
-            )
+        n_samples, n_components = framelogprob.shape
+        bwdlattice = np.zeros((n_samples, n_components))
+        _hmmc._backward(n_samples, n_components,
+                        log_mask_zero(self.startprob_),
+                        log_mask_zero(self.transmat_),
+                        framelogprob, bwdlattice)
 
         return np.nan_to_num(bwdlattice, posinf=1e10, neginf=-1e10)
 
@@ -732,19 +691,11 @@ class _BaseHMM(BaseEstimator):
             if n_samples <= 1:
                 return
 
-            if hasattr(_hmmc, "_compute_log_xi_sum"):
-                log_xi_sum = np.full((n_components, n_components), -np.inf)
-                _hmmc._compute_log_xi_sum(n_samples, n_components, fwdlattice,
-                                          log_mask_zero(self.transmat_),
-                                          bwdlattice, framelogprob,
-                                          log_xi_sum)
-            else:
-                log_xi_sum = _hmmc.compute_log_xi_sum(
-                    fwdlattice,
-                    log_mask_zero(self.transmat_),
-                    bwdlattice,
-                    framelogprob,
-                )
+            log_xi_sum = np.full((n_components, n_components), -np.inf)
+            _hmmc._compute_log_xi_sum(n_samples, n_components, fwdlattice,
+                                      log_mask_zero(self.transmat_),
+                                      bwdlattice, framelogprob,
+                                      log_xi_sum)
             np.nan_to_num(log_xi_sum, posinf=1e10, neginf=-1e10)
             with np.errstate(under="ignore"):
                 stats['trans'] += np.exp(log_xi_sum)

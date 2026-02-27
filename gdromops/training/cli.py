@@ -27,9 +27,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--storage-cap-source",
-        choices=["summary", "data_max"],
         default="summary",
-        help="How to get storage cap: summary (default) or data_max=max(Storage) from target-data.",
+        metavar="SOURCE",
+        choices=["summary", "input_max_storage", "data_max"],
+        help="How to get storage cap: summary (default) or input_max_storage=max(Storage) from target-data. "
+             "data_max is kept as a deprecated alias.",
     )
     parser.add_argument("--output-root", required=True, help="Output root folder for Operation Rules - GDROMs.")
     parser.add_argument(

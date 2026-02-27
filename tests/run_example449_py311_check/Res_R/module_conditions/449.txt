@@ -1,2 +1,0 @@
-if (PDSI <= -3.86) then module: 2
-if (PDSI > -3.86) then module: 2
