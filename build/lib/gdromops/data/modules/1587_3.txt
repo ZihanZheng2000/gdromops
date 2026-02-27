@@ -1,0 +1,15 @@
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage <= 53784.9) and (Storage <= 15635.0) and (Inflow <= 421.5) then Release: 429.2
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage <= 53784.9) and (Storage <= 15635.0) and (Inflow > 421.5) and (Storage <= 11709.2) then Release: 557.9
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage <= 53784.9) and (Storage <= 15635.0) and (Inflow > 421.5) and (Storage > 11709.2) then Release: 800.8
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage <= 53784.9) and (Storage > 15635.0) and (Inflow <= 128.2) then Release: 552.2
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage <= 53784.9) and (Storage > 15635.0) and (Inflow > 128.2) then Release: 832.5
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage > 53784.9) and (Inflow <= 506.4) then Release: 409.4
+if (Inflow <= 802.3) and (Storage <= 58352.4) and (Storage > 53784.9) and (Inflow > 506.4) then Release: 684.6
+if (Inflow <= 802.3) and (Storage > 58352.4) and (Inflow <= 529.3) then Release: 977.6
+if (Inflow <= 802.3) and (Storage > 58352.4) and (Inflow > 529.3) then Release: 1695.2
+if (Inflow > 802.3) and (Storage <= 56681.1) and (Inflow <= 4071.0) and (Inflow <= 1011.5) then Release: 861.3
+if (Inflow > 802.3) and (Storage <= 56681.1) and (Inflow <= 4071.0) and (Inflow > 1011.5) then Release: 1029.1
+if (Inflow > 802.3) and (Storage <= 56681.1) and (Inflow > 4071.0) then Release: 811.9
+if (Inflow > 802.3) and (Storage > 56681.1) and (Inflow <= 3179.7) and (Storage <= 84486.2) then Release: 1433.2
+if (Inflow > 802.3) and (Storage > 56681.1) and (Inflow <= 3179.7) and (Storage > 84486.2) then Release: 1118.1
+if (Inflow > 802.3) and (Storage > 56681.1) and (Inflow > 3179.7) then Release: 1045.6

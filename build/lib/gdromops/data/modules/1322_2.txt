@@ -1,0 +1,2 @@
+if (Storage <= 29.5) then Release: 0.2
+if (Storage > 29.5) then Release: 0.5

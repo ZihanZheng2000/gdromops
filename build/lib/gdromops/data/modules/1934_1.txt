@@ -1,0 +1,10 @@
+if (Inflow <= 11.0) and (Inflow <= 5.7) and (Inflow <= 4.6) then Release: 3.1
+if (Inflow <= 11.0) and (Inflow <= 5.7) and (Inflow > 4.6) then Release: 4.9
+if (Inflow <= 11.0) and (Inflow > 5.7) and (Inflow <= 8.1) then Release: 7.2
+if (Inflow <= 11.0) and (Inflow > 5.7) and (Inflow > 8.1) and (Inflow <= 9.7) then Release: 9.4
+if (Inflow <= 11.0) and (Inflow > 5.7) and (Inflow > 8.1) and (Inflow > 9.7) then Release: 11.0
+if (Inflow > 11.0) and (Inflow <= 19.7) and (Inflow <= 14.1) and (Inflow <= 12.2) then Release: 12.0
+if (Inflow > 11.0) and (Inflow <= 19.7) and (Inflow <= 14.1) and (Inflow > 12.2) then Release: 13.4
+if (Inflow > 11.0) and (Inflow <= 19.7) and (Inflow > 14.1) and (Inflow <= 17.3) then Release: 15.5
+if (Inflow > 11.0) and (Inflow <= 19.7) and (Inflow > 14.1) and (Inflow > 17.3) then Release: 16.9
+if (Inflow > 11.0) and (Inflow > 19.7) then Release: 25.8

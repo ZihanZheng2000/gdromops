@@ -1,2 +1,7 @@
-pandas>=1.5
-requests>=2.31
+numpy
+scipy
+scikit-learn
+hmmlearn
+pandas
+xarray
+matplotlib

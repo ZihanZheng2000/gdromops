@@ -1,0 +1,12 @@
+if (Inflow <= 2878.3) and (Inflow <= 508.4) then Release: 218.5
+if (Inflow <= 2878.3) and (Inflow > 508.4) and (Inflow <= 1695.0) and (Inflow <= 831.4) then Release: 1036.1
+if (Inflow <= 2878.3) and (Inflow > 508.4) and (Inflow <= 1695.0) and (Inflow > 831.4) then Release: 1331.5
+if (Inflow <= 2878.3) and (Inflow > 508.4) and (Inflow > 1695.0) and (Inflow <= 2327.5) then Release: 1918.5
+if (Inflow <= 2878.3) and (Inflow > 508.4) and (Inflow > 1695.0) and (Inflow > 2327.5) then Release: 2524.0
+if (Inflow > 2878.3) and (Inflow <= 5266.0) and (Inflow <= 4211.8) and (Inflow <= 3392.4) then Release: 3075.6
+if (Inflow > 2878.3) and (Inflow <= 5266.0) and (Inflow <= 4211.8) and (Inflow > 3392.4) then Release: 3627.8
+if (Inflow > 2878.3) and (Inflow <= 5266.0) and (Inflow > 4211.8) then Release: 4550.4
+if (Inflow > 2878.3) and (Inflow > 5266.0) and (Inflow <= 6750.4) and (Inflow <= 5908.3) then Release: 5532.4
+if (Inflow > 2878.3) and (Inflow > 5266.0) and (Inflow <= 6750.4) and (Inflow > 5908.3) then Release: 6305.9
+if (Inflow > 2878.3) and (Inflow > 5266.0) and (Inflow > 6750.4) and (Inflow <= 8534.8) then Release: 7320.4
+if (Inflow > 2878.3) and (Inflow > 5266.0) and (Inflow > 6750.4) and (Inflow > 8534.8) then Release: 9117.4

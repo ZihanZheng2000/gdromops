@@ -1,0 +1,6 @@
+if (Storage <= 113463.3) and (PDSI <= 2.63) then module: 1
+if (Storage > 113463.3) and (PDSI <= 1.72) then module: 1
+if (Storage > 113463.3) and (PDSI <= 2.63) and (PDSI > 1.72) and (DOY <= 197.0) then module: 1
+if (Storage > 113463.3) and (PDSI <= 2.63) and (PDSI > 1.72) and (DOY > 197.0) then module: 0
+if (PDSI > 2.63) and (DOY <= 168.0) then module: 1
+if (PDSI > 2.63) and (DOY > 168.0) then module: 0

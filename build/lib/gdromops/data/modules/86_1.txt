@@ -1,0 +1,18 @@
+if (Inflow <= 449.7) and (Inflow <= 165.7) and (Inflow <= 85.5) and (Inflow <= 39.1) then Release: 26.8
+if (Inflow <= 449.7) and (Inflow <= 165.7) and (Inflow <= 85.5) and (Inflow > 39.1) then Release: 52.1
+if (Inflow <= 449.7) and (Inflow <= 165.7) and (Inflow > 85.5) then Release: 118.8
+if (Inflow <= 449.7) and (Inflow > 165.7) and (Inflow <= 299.7) and (Inflow <= 242.7) then Release: 196.3
+if (Inflow <= 449.7) and (Inflow > 165.7) and (Inflow <= 299.7) and (Inflow > 242.7) then Release: 276.8
+if (Inflow <= 449.7) and (Inflow > 165.7) and (Inflow > 299.7) and (Inflow <= 377.4) then Release: 340.5
+if (Inflow <= 449.7) and (Inflow > 165.7) and (Inflow > 299.7) and (Inflow > 377.4) then Release: 405.7
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow <= 731.9) and (Inflow <= 615.0) and (Inflow <= 554.6) then Release: 517.7
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow <= 731.9) and (Inflow <= 615.0) and (Inflow > 554.6) then Release: 592.2
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow <= 731.9) and (Inflow > 615.0) then Release: 663.7
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow > 731.9) and (Inflow <= 913.8) and (Inflow <= 819.6) then Release: 791.0
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow > 731.9) and (Inflow <= 913.8) and (Inflow > 819.6) and (Inflow <= 865.6) then Release: 841.0
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow > 731.9) and (Inflow <= 913.8) and (Inflow > 819.6) and (Inflow > 865.6) then Release: 884.9
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow > 731.9) and (Inflow > 913.8) and (Inflow <= 980.7) then Release: 940.8
+if (Inflow > 449.7) and (Inflow <= 1167.8) and (Inflow > 731.9) and (Inflow > 913.8) and (Inflow > 980.7) then Release: 1031.3
+if (Inflow > 449.7) and (Inflow > 1167.8) and (Inflow <= 1618.7) and (Inflow <= 1461.6) then Release: 1340.3
+if (Inflow > 449.7) and (Inflow > 1167.8) and (Inflow <= 1618.7) and (Inflow > 1461.6) then Release: 1537.4
+if (Inflow > 449.7) and (Inflow > 1167.8) and (Inflow > 1618.7) then Release: 1682.6

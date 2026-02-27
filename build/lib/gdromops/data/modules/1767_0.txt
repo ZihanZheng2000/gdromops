@@ -1,0 +1,17 @@
+if (Inflow <= 1424.5) and (Inflow <= 727.2) and (Inflow <= 452.9) and (Inflow <= -172.8) then Release: 336.3
+if (Inflow <= 1424.5) and (Inflow <= 727.2) and (Inflow <= 452.9) and (Inflow > -172.8) and (Storage <= 241757.6) then Release: 520.5
+if (Inflow <= 1424.5) and (Inflow <= 727.2) and (Inflow <= 452.9) and (Inflow > -172.8) and (Storage > 241757.6) then Release: 776.9
+if (Inflow <= 1424.5) and (Inflow <= 727.2) and (Inflow > 452.9) then Release: 869.0
+if (Inflow <= 1424.5) and (Inflow > 727.2) and (Inflow <= 1151.7) and (Inflow <= 969.1) then Release: 1148.6
+if (Inflow <= 1424.5) and (Inflow > 727.2) and (Inflow <= 1151.7) and (Inflow > 969.1) then Release: 1351.6
+if (Inflow <= 1424.5) and (Inflow > 727.2) and (Inflow > 1151.7) then Release: 1686.9
+if (Inflow > 1424.5) and (Inflow <= 2320.8) and (Inflow <= 1700.6) then Release: 2029.5
+if (Inflow > 1424.5) and (Inflow <= 2320.8) and (Inflow > 1700.6) and (Inflow <= 2055.1) then Release: 2348.5
+if (Inflow > 1424.5) and (Inflow <= 2320.8) and (Inflow > 1700.6) and (Inflow > 2055.1) then Release: 2547.9
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow <= 3029.7) and (Storage <= 192134.7) then Release: 3538.0
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow <= 3029.7) and (Storage > 192134.7) then Release: 2916.1
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow > 3029.7) and (Inflow <= 5769.2) and (Inflow <= 3610.0) and (Storage <= 273493.8) then Release: 3299.8
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow > 3029.7) and (Inflow <= 5769.2) and (Inflow <= 3610.0) and (Storage > 273493.8) then Release: 3688.9
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow > 3029.7) and (Inflow <= 5769.2) and (Inflow > 3610.0) and (Storage <= 287805.8) then Release: 3905.7
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow > 3029.7) and (Inflow <= 5769.2) and (Inflow > 3610.0) and (Storage > 287805.8) then Release: 3021.9
+if (Inflow > 1424.5) and (Inflow > 2320.8) and (Inflow > 3029.7) and (Inflow > 5769.2) then Release: 2521.8

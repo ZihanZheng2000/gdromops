@@ -1,0 +1,2 @@
+if (Inflow <= 94.7426) then Release: 42.6576
+if (Inflow > 94.7426) then Release: 155.6904

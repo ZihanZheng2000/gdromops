@@ -1,0 +1,2 @@
+if (Storage <= 6076.6) then Release: 11.2
+if (Storage > 6076.6) then Release: 15.2

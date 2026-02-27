@@ -1,0 +1,26 @@
+if (Inflow <= 269.1) and (Storage <= 9237.9) then Release: 70.8
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow <= -242.0) then Release: 154.1
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage <= 12922.7) and (Inflow <= 166.8) then Release: 206.6
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage <= 12922.7) and (Inflow > 166.8) then Release: 629.1
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow <= 166.1) and (Inflow <= 12.1) then Release: 665.6
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow <= 166.1) and (Inflow > 12.1) and (Inflow <= 94.2) then Release: 315.6
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow <= 166.1) and (Inflow > 12.1) and (Inflow > 94.2) and (Storage <= 20993.4) and (Inflow <= 121.4) then Release: 706.9
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow <= 166.1) and (Inflow > 12.1) and (Inflow > 94.2) and (Storage <= 20993.4) and (Inflow > 121.4) then Release: 311.9
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow <= 166.1) and (Inflow > 12.1) and (Inflow > 94.2) and (Storage > 20993.4) then Release: 772.7
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow > 166.1) and (Storage <= 13760.5) then Release: 651.4
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage <= 24926.6) and (Inflow > -242.0) and (Storage > 12922.7) and (Inflow > 166.1) and (Storage > 13760.5) then Release: 234.5
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage > 24926.6) and (Inflow <= -23.1) then Release: 371.9
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage <= 41355.0) and (Storage > 24926.6) and (Inflow > -23.1) then Release: 766.9
+if (Inflow <= 269.1) and (Storage > 9237.9) and (Storage > 41355.0) then Release: 168.6
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage <= 26737.5) and (Inflow <= 460.3) then Release: 597.4
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage <= 26737.5) and (Inflow > 460.3) and (Storage <= 6910.0) then Release: 582.4
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage <= 26737.5) and (Inflow > 460.3) and (Storage > 6910.0) then Release: 287.4
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage > 26737.5) and (Inflow <= 554.3) and (Storage <= 39565.7) then Release: 911.2
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage > 26737.5) and (Inflow <= 554.3) and (Storage > 39565.7) then Release: 703.1
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage > 26737.5) and (Inflow > 554.3) and (Storage <= 39310.1) then Release: 379.5
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage > 26737.5) and (Inflow > 554.3) and (Storage > 39310.1) and (Inflow <= 720.3) then Release: 624.0
+if (Inflow > 269.1) and (Inflow <= 825.4) and (Storage > 26737.5) and (Inflow > 554.3) and (Storage > 39310.1) and (Inflow > 720.3) then Release: 806.3
+if (Inflow > 269.1) and (Inflow > 825.4) and (Inflow <= 1750.6) and (Inflow <= 1416.2) then Release: 982.2
+if (Inflow > 269.1) and (Inflow > 825.4) and (Inflow <= 1750.6) and (Inflow > 1416.2) and (Inflow <= 1509.6) then Release: 1133.3
+if (Inflow > 269.1) and (Inflow > 825.4) and (Inflow <= 1750.6) and (Inflow > 1416.2) and (Inflow > 1509.6) then Release: 1473.7
+if (Inflow > 269.1) and (Inflow > 825.4) and (Inflow > 1750.6) then Release: 2349.7

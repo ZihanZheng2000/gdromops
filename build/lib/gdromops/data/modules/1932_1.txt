@@ -1,0 +1,2 @@
+if (Inflow <= 13.8) then Release: 20.1
+if (Inflow > 13.8) then Release: 42.2

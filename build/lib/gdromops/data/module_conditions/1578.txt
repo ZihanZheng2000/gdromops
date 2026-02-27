@@ -1,0 +1,25 @@
+if (PDSI <= -1.51) and (DOY <= 99.0) then module: 2
+if (Storage <= 63087.8) and (PDSI <= -1.51) and (DOY <= 146.0) and (DOY > 99.0) then module: 0
+if (Storage > 63087.8) and (PDSI <= -1.51) and (DOY <= 146.0) and (DOY > 99.0) then module: 1
+if (Inflow <= 69.4) and (PDSI > -1.51) and (DOY <= 91.0) then module: 2
+if (Inflow > 69.4) and (PDSI <= -1.3) and (PDSI > -1.51) and (DOY <= 91.0) then module: 0
+if (Inflow > 69.4) and (PDSI <= -0.77) and (PDSI > -1.3) and (DOY <= 91.0) then module: 1
+if (Inflow > 69.4) and (PDSI > -0.77) and (DOY <= 91.0) then module: 0
+if (PDSI <= 4.74) and (PDSI > -1.51) and (DOY <= 146.0) and (DOY > 91.0) then module: 0
+if (PDSI > 4.74) and (DOY <= 111.0) and (DOY > 91.0) then module: 1
+if (PDSI > 4.74) and (DOY <= 146.0) and (DOY > 111.0) then module: 0
+if (PDSI <= -0.41) and (DOY <= 166.0) and (DOY > 146.0) then module: 1
+if (PDSI <= -0.41) and (DOY <= 200.0) and (DOY > 166.0) then module: 2
+if (PDSI <= 5.78) and (PDSI > -0.41) and (DOY <= 200.0) and (DOY > 146.0) then module: 1
+if (Storage <= 51231.0) and (PDSI <= 5.78) and (DOY <= 303.0) and (DOY > 200.0) then module: 1
+if (Storage > 51231.0) and (PDSI <= 5.19) and (DOY <= 303.0) and (DOY > 200.0) then module: 2
+if (Storage > 51231.0) and (PDSI <= 5.78) and (PDSI > 5.19) and (DOY <= 303.0) and (DOY > 200.0) then module: 1
+if (PDSI <= -1.37) and (DOY > 303.0) then module: 1
+if (PDSI <= 5.78) and (PDSI > -1.37) and (DOY <= 320.0) and (DOY > 303.0) then module: 1
+if (Inflow <= 170.3) and (PDSI <= 5.78) and (PDSI > -1.37) and (DOY > 320.0) then module: 1
+if (Inflow > 170.3) and (PDSI <= 5.78) and (PDSI > -1.37) and (DOY > 320.0) then module: 0
+if (PDSI <= 6.41) and (PDSI > 5.78) and (DOY > 146.0) then module: 0
+if (Inflow <= 224.2) and (PDSI > 6.41) and (DOY <= 310.0) and (DOY > 146.0) then module: 0
+if (Inflow <= 425.9) and (Inflow > 224.2) and (PDSI > 6.41) and (DOY <= 310.0) and (DOY > 146.0) then module: 1
+if (Inflow > 425.9) and (PDSI > 6.41) and (DOY <= 310.0) and (DOY > 146.0) then module: 0
+if (PDSI > 6.41) and (DOY > 310.0) then module: 0

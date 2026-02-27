@@ -1,0 +1,16 @@
+if (Inflow <= 2350.8) and (Storage <= 251080.5) and (Inflow <= 1434.4) and (Inflow <= 703.9) then Release: 653.9
+if (Inflow <= 2350.8) and (Storage <= 251080.5) and (Inflow <= 1434.4) and (Inflow > 703.9) then Release: 1228.7
+if (Inflow <= 2350.8) and (Storage <= 251080.5) and (Inflow > 1434.4) and (Storage <= 248128.5) then Release: 1924.6
+if (Inflow <= 2350.8) and (Storage <= 251080.5) and (Inflow > 1434.4) and (Storage > 248128.5) then Release: 2675.3
+if (Inflow <= 2350.8) and (Storage > 251080.5) and (Storage <= 253233.0) then Release: 2432.9
+if (Inflow <= 2350.8) and (Storage > 251080.5) and (Storage > 253233.0) and (Storage <= 259558.0) and (Storage <= 257601.5) then Release: 3629.5
+if (Inflow <= 2350.8) and (Storage > 251080.5) and (Storage > 253233.0) and (Storage <= 259558.0) and (Storage > 257601.5) then Release: 2660.9
+if (Inflow <= 2350.8) and (Storage > 251080.5) and (Storage > 253233.0) and (Storage > 259558.0) then Release: 4385.5
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow <= 10829.2) and (Storage <= 250786.0) then Release: 2300.7
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow <= 10829.2) and (Storage > 250786.0) and (Inflow <= 4778.0) and (Inflow <= 3640.7) and (Inflow <= 2624.6) then Release: 4415.2
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow <= 10829.2) and (Storage > 250786.0) and (Inflow <= 4778.0) and (Inflow <= 3640.7) and (Inflow > 2624.6) then Release: 6100.3
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow <= 10829.2) and (Storage > 250786.0) and (Inflow <= 4778.0) and (Inflow > 3640.7) then Release: 4508.9
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow <= 10829.2) and (Storage > 250786.0) and (Inflow > 4778.0) then Release: 3203.6
+if (Inflow > 2350.8) and (Storage <= 266701.5) and (Inflow > 10829.2) then Release: 10256.2
+if (Inflow > 2350.8) and (Storage > 266701.5) and (Storage <= 289891.0) then Release: 7237.3
+if (Inflow > 2350.8) and (Storage > 266701.5) and (Storage > 289891.0) then Release: 9067.9

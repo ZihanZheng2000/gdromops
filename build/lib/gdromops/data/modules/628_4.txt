@@ -1,0 +1,2 @@
+if (Inflow <= 16.1) then Release: 1.8
+if (Inflow > 16.1) then Release: 18.0

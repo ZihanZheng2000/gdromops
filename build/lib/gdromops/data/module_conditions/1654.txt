@@ -1,0 +1,27 @@
+if (Inflow <= -39.4) and (Storage <= 27345.8) then module: 2
+if (Inflow <= -91.2) and (Storage <= 32718.4) and (Storage > 27345.8) then module: 1
+if (Inflow <= -39.4) and (Inflow > -91.2) and (Storage <= 32718.4) and (Storage > 27345.8) then module: 0
+if (Inflow <= 94.9) and (Inflow > -39.4) and (Storage <= 32718.4) and (PDSI <= 3.68) then module: 0
+if (Inflow <= 94.9) and (Inflow > -39.4) and (Storage <= 32718.4) and (PDSI > 3.68) then module: 1
+if (Inflow <= 262.5) and (Inflow > 94.9) and (Storage <= 32718.4) then module: 0
+if (Inflow <= 262.5) and (Storage <= 33131.8) and (Storage > 32718.4) and (DOY <= 210.0) then module: 0
+if (Inflow <= 262.5) and (Storage <= 33131.8) and (Storage > 32718.4) and (DOY > 210.0) then module: 1
+if (Inflow <= 262.5) and (Storage <= 41607.4) and (Storage > 33131.8) then module: 1
+if (Inflow <= -273.7) and (Storage > 41607.4) then module: 1
+if (Inflow <= 144.5) and (Inflow > -273.7) and (Storage > 41607.4) then module: 2
+if (Inflow <= 262.5) and (Inflow > 144.5) and (Storage > 41607.4) and (PDSI <= 3.97) then module: 2
+if (Inflow <= 262.5) and (Inflow > 144.5) and (Storage > 41607.4) and (PDSI > 3.97) then module: 1
+if (Inflow <= 341.8) and (Inflow > 262.5) and (Storage <= 27402.5) then module: 0
+if (Inflow <= 341.8) and (Inflow > 262.5) and (Storage <= 33617.0) and (Storage > 27402.5) then module: 1
+if (Inflow <= 502.1) and (Inflow > 341.8) and (Storage <= 29901.5) then module: 1
+if (Inflow <= 502.1) and (Inflow > 341.8) and (Storage <= 33617.0) and (Storage > 29901.5) then module: 2
+if (Inflow > 502.1) and (Storage <= 27430.9) and (DOY <= 99.0) then module: 1
+if (Inflow > 502.1) and (Storage <= 33617.0) and (Storage > 27430.9) and (DOY <= 99.0) then module: 2
+if (Inflow <= 918.1) and (Inflow > 502.1) and (Storage <= 33617.0) and (DOY > 99.0) then module: 1
+if (Inflow > 918.1) and (Storage <= 33617.0) and (DOY > 99.0) then module: 2
+if (Inflow <= 907.7) and (Inflow > 262.5) and (Storage <= 35978.7) and (Storage > 33617.0) and (DOY <= 166.0) then module: 2
+if (Inflow <= 907.7) and (Inflow > 262.5) and (Storage <= 35978.7) and (Storage > 33617.0) and (DOY > 166.0) then module: 1
+if (Inflow <= 907.7) and (Inflow > 262.5) and (Storage > 35978.7) then module: 2
+if (Inflow <= 3465.9) and (Inflow > 907.7) and (Storage <= 38228.8) and (Storage > 33617.0) then module: 2
+if (Inflow > 3465.9) and (Storage <= 38228.8) and (Storage > 33617.0) then module: 1
+if (Inflow > 907.7) and (Storage > 38228.8) then module: 0

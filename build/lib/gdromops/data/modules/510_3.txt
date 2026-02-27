@@ -1,0 +1,4 @@
+if (Inflow <= 802.3) and (Inflow <= -15.5) then Release: 5.2
+if (Inflow <= 802.3) and (Inflow > -15.5) and (Inflow <= 28.6) then Release: 23.5
+if (Inflow <= 802.3) and (Inflow > -15.5) and (Inflow > 28.6) then Release: 9.0
+if (Inflow > 802.3) then Release: 281.2

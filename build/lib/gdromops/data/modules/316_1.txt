@@ -1,0 +1,16 @@
+if (Inflow <= 57643.2) and (Inflow <= 30556.4) and (Storage <= 152563.2) then Release: 15774.4
+if (Inflow <= 57643.2) and (Inflow <= 30556.4) and (Storage > 152563.2) then Release: 18967.0
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage <= 1141032.5) and (Inflow <= 44963.0) and (Storage <= 787850.4) and (Storage <= 290331.4) then Release: 20324.2
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage <= 1141032.5) and (Inflow <= 44963.0) and (Storage <= 787850.4) and (Storage > 290331.4) then Release: 14704.8
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage <= 1141032.5) and (Inflow <= 44963.0) and (Storage > 787850.4) then Release: 25894.1
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage <= 1141032.5) and (Inflow > 44963.0) and (Storage <= 281309.6) then Release: 20814.2
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage <= 1141032.5) and (Inflow > 44963.0) and (Storage > 281309.6) then Release: 27121.6
+if (Inflow <= 57643.2) and (Inflow > 30556.4) and (Storage > 1141032.5) then Release: 35513.2
+if (Inflow > 57643.2) and (Inflow <= 80967.2) and (Storage <= 887025.2) then Release: 29247.8
+if (Inflow > 57643.2) and (Inflow <= 80967.2) and (Storage > 887025.2) then Release: 43384.5
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage <= 968031.9) and (Storage <= 629188.8) then Release: 37535.1
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage <= 968031.9) and (Storage > 629188.8) and (Storage <= 844994.5) then Release: 56188.2
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage <= 968031.9) and (Storage > 629188.8) and (Storage > 844994.5) and (Storage <= 912995.3) then Release: 28518.2
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage <= 968031.9) and (Storage > 629188.8) and (Storage > 844994.5) and (Storage > 912995.3) then Release: 45192.5
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage > 968031.9) and (Storage <= 1199461.0) then Release: 69908.8
+if (Inflow > 57643.2) and (Inflow > 80967.2) and (Storage > 968031.9) and (Storage > 1199461.0) then Release: 46648.1

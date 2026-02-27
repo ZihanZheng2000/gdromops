@@ -1,0 +1,18 @@
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage <= 11906.0) and (Inflow <= 13.7) then Release: 22.3
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage <= 11906.0) and (Inflow > 13.7) then Release: 28.8
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage > 11906.0) and (Inflow <= 20.2) and (Storage <= 12362.2) and (Inflow <= 16.5) then Release: 4.6
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage > 11906.0) and (Inflow <= 20.2) and (Storage <= 12362.2) and (Inflow > 16.5) then Release: 13.6
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage > 11906.0) and (Inflow <= 20.2) and (Storage > 12362.2) then Release: 25.2
+if (Inflow <= 43.4) and (Inflow <= 21.2) and (Storage > 11906.0) and (Inflow > 20.2) then Release: 40.1
+if (Inflow <= 43.4) and (Inflow > 21.2) and (Inflow <= 27.8) then Release: 34.6
+if (Inflow <= 43.4) and (Inflow > 21.2) and (Inflow > 27.8) and (Storage <= 11809.0) and (Inflow <= 28.7) then Release: 59.2
+if (Inflow <= 43.4) and (Inflow > 21.2) and (Inflow > 27.8) and (Storage <= 11809.0) and (Inflow > 28.7) then Release: 35.9
+if (Inflow <= 43.4) and (Inflow > 21.2) and (Inflow > 27.8) and (Storage > 11809.0) then Release: 45.7
+if (Inflow > 43.4) and (Inflow <= 62.3) and (Inflow <= 48.6) then Release: 53.2
+if (Inflow > 43.4) and (Inflow <= 62.3) and (Inflow > 48.6) and (Storage <= 11973.3) then Release: 55.8
+if (Inflow > 43.4) and (Inflow <= 62.3) and (Inflow > 48.6) and (Storage > 11973.3) then Release: 66.0
+if (Inflow > 43.4) and (Inflow > 62.3) and (Storage <= 12560.8) and (Storage <= 12078.0) then Release: 55.5
+if (Inflow > 43.4) and (Inflow > 62.3) and (Storage <= 12560.8) and (Storage > 12078.0) then Release: 72.5
+if (Inflow > 43.4) and (Inflow > 62.3) and (Storage > 12560.8) and (Storage <= 12694.5) then Release: 82.6
+if (Inflow > 43.4) and (Inflow > 62.3) and (Storage > 12560.8) and (Storage > 12694.5) and (Inflow <= 110.5) then Release: 91.0
+if (Inflow > 43.4) and (Inflow > 62.3) and (Storage > 12560.8) and (Storage > 12694.5) and (Inflow > 110.5) then Release: 119.7

@@ -1,0 +1,54 @@
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow <= 2650.1) and (Inflow <= 2420.3) then Release: 2256.6
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow <= 2650.1) and (Inflow > 2420.3) then Release: 2615.2
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow <= 2824.1) and (Inflow <= 2747.8) then Release: 2722.1
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow <= 2824.1) and (Inflow > 2747.8) then Release: 2822.2
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow > 2824.1) and (Inflow <= 2900.2) and (Storage <= 30927.6) then Release: 2967.0
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow > 2824.1) and (Inflow <= 2900.2) and (Storage > 30927.6) then Release: 2879.1
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow > 2824.1) and (Inflow > 2900.2) and (Storage <= 29825.8) then Release: 3046.4
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage <= 45303.0) and (Inflow > 2824.1) and (Inflow > 2900.2) and (Storage > 29825.8) then Release: 2963.0
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage > 45303.0) and (Inflow <= 2727.6) then Release: 3074.1
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow <= 3025.7) and (Inflow > 2650.1) and (Storage > 45303.0) and (Inflow > 2727.6) then Release: 3196.5
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow <= 3190.6) and (Inflow <= 3113.4) and (Storage <= 30201.1) then Release: 3159.1
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow <= 3190.6) and (Inflow <= 3113.4) and (Storage > 30201.1) then Release: 3058.5
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow <= 3190.6) and (Inflow > 3113.4) and (Storage <= 30589.5) then Release: 3195.7
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow <= 3190.6) and (Inflow > 3113.4) and (Storage > 30589.5) then Release: 3142.5
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow > 3190.6) and (Inflow <= 3265.2) then Release: 3223.7
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow > 3190.6) and (Inflow > 3265.2) and (Inflow <= 3351.7) and (Inflow <= 3347.1) then Release: 3303.6
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow > 3190.6) and (Inflow > 3265.2) and (Inflow <= 3351.7) and (Inflow > 3347.1) then Release: 3191.7
+if (Inflow <= 4165.3) and (Inflow <= 3379.9) and (Inflow > 3025.7) and (Inflow > 3190.6) and (Inflow > 3265.2) and (Inflow > 3351.7) then Release: 3361.6
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow <= 3543.4) and (Inflow <= 3467.5) and (Storage <= 43634.7) and (Inflow <= 3409.6) then Release: 3360.5
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow <= 3543.4) and (Inflow <= 3467.5) and (Storage <= 43634.7) and (Inflow > 3409.6) then Release: 3420.8
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow <= 3543.4) and (Inflow <= 3467.5) and (Storage > 43634.7) then Release: 3516.6
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow <= 3543.4) and (Inflow > 3467.5) and (Storage <= 35111.3) then Release: 3503.2
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow <= 3543.4) and (Inflow > 3467.5) and (Storage > 35111.3) then Release: 3381.5
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow > 3543.4) and (Storage <= 47925.2) and (Inflow <= 3648.0) and (Inflow <= 3598.2) then Release: 3567.6
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow > 3543.4) and (Storage <= 47925.2) and (Inflow <= 3648.0) and (Inflow > 3598.2) then Release: 3617.0
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow > 3543.4) and (Storage <= 47925.2) and (Inflow > 3648.0) and (Inflow <= 3697.9) then Release: 3686.4
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow > 3543.4) and (Storage <= 47925.2) and (Inflow > 3648.0) and (Inflow > 3697.9) then Release: 3747.2
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow <= 3755.1) and (Inflow > 3543.4) and (Storage > 47925.2) then Release: 3238.7
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow <= 3985.0) and (Storage <= 44545.8) and (Inflow <= 3874.9) and (Storage <= 29272.2) then Release: 3723.6
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow <= 3985.0) and (Storage <= 44545.8) and (Inflow <= 3874.9) and (Storage > 29272.2) and (Inflow <= 3816.1) then Release: 3791.6
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow <= 3985.0) and (Storage <= 44545.8) and (Inflow <= 3874.9) and (Storage > 29272.2) and (Inflow > 3816.1) then Release: 3865.9
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow <= 3985.0) and (Storage <= 44545.8) and (Inflow > 3874.9) then Release: 3941.4
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow <= 3985.0) and (Storage > 44545.8) then Release: 3535.3
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow > 3985.0) and (Inflow <= 4070.0) then Release: 4016.0
+if (Inflow <= 4165.3) and (Inflow > 3379.9) and (Inflow > 3755.1) and (Inflow > 3985.0) and (Inflow > 4070.0) then Release: 4126.8
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow <= 4441.5) and (Inflow <= 4300.6) then Release: 4237.6
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow <= 4441.5) and (Inflow > 4300.6) and (Storage <= 33105.7) then Release: 4356.6
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow <= 4441.5) and (Inflow > 4300.6) and (Storage > 33105.7) then Release: 4440.6
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow > 4441.5) and (Inflow <= 4565.7) then Release: 4508.3
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow > 4441.5) and (Inflow > 4565.7) and (Storage <= 32862.2) then Release: 4573.3
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow <= 4709.2) and (Inflow > 4441.5) and (Inflow > 4565.7) and (Storage > 32862.2) then Release: 4662.1
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow > 4709.2) and (Inflow <= 4966.1) and (Inflow <= 4792.7) then Release: 4765.3
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow > 4709.2) and (Inflow <= 4966.1) and (Inflow > 4792.7) then Release: 4895.4
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow > 4709.2) and (Inflow > 4966.1) and (Inflow <= 5152.1) then Release: 5067.0
+if (Inflow > 4165.3) and (Inflow <= 5270.5) and (Inflow > 4709.2) and (Inflow > 4966.1) and (Inflow > 5152.1) then Release: 5217.1
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow <= 5797.8) and (Inflow <= 5504.2) and (Inflow <= 5427.5) then Release: 5360.6
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow <= 5797.8) and (Inflow <= 5504.2) and (Inflow > 5427.5) then Release: 5476.8
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow <= 5797.8) and (Inflow > 5504.2) and (Storage <= 33320.0) then Release: 5584.0
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow <= 5797.8) and (Inflow > 5504.2) and (Storage > 33320.0) then Release: 5730.9
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow > 5797.8) and (Inflow <= 6069.0) and (Inflow <= 5952.5) then Release: 5878.8
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow > 5797.8) and (Inflow <= 6069.0) and (Inflow > 5952.5) then Release: 6024.0
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow > 5797.8) and (Inflow > 6069.0) and (Inflow <= 6226.8) then Release: 6148.6
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow <= 6602.2) and (Inflow > 5797.8) and (Inflow > 6069.0) and (Inflow > 6226.8) then Release: 6309.5
+if (Inflow > 4165.3) and (Inflow > 5270.5) and (Inflow > 6602.2) then Release: 7435.5

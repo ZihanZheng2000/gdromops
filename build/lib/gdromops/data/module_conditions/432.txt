@@ -1,0 +1,11 @@
+if (Storage <= 6272.3) and (PDSI <= 2.82) and (DOY <= 108.0) then module: 1
+if (Storage <= 6272.3) and (PDSI > 2.82) and (DOY <= 62.0) then module: 1
+if (Storage <= 6272.3) and (PDSI > 2.82) and (DOY <= 108.0) and (DOY > 62.0) then module: 2
+if (Storage <= 7987.3) and (Storage > 6272.3) and (DOY <= 108.0) then module: 1
+if (Storage <= 8132.7) and (Storage > 7987.3) and (DOY <= 108.0) then module: 0
+if (Storage > 8132.7) and (DOY <= 108.0) then module: 1
+if (DOY <= 271.0) and (DOY > 108.0) then module: 1
+if (Storage <= 4442.0) and (PDSI <= -2.65) and (DOY > 271.0) then module: 1
+if (Storage > 4442.0) and (PDSI <= -5.03) and (DOY > 271.0) then module: 1
+if (Storage > 4442.0) and (PDSI <= -2.65) and (PDSI > -5.03) and (DOY > 271.0) then module: 2
+if (PDSI > -2.65) and (DOY > 271.0) then module: 1

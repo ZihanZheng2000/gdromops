@@ -1,0 +1,2 @@
+[console_scripts]
+gdromops-train-res-r = gdromops.training.cli:main

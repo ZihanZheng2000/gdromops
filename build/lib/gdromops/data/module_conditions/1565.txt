@@ -1,0 +1,22 @@
+if (Inflow <= 174.6) and (PDSI <= 2.4) then module: 1
+if (Inflow <= 174.6) and (Storage <= 75502.0) and (PDSI <= 3.39) and (PDSI > 2.4) then module: 1
+if (Inflow <= 174.6) and (Storage > 75502.0) and (PDSI <= 3.39) and (PDSI > 2.4) then module: 3
+if (Inflow <= 392.1) and (Inflow > 174.6) and (Storage <= 71337.7) and (PDSI <= 3.39) and (DOY <= 299.0) then module: 1
+if (Inflow <= 392.1) and (Inflow > 174.6) and (Storage <= 71337.7) and (PDSI <= 3.39) and (DOY > 299.0) then module: 2
+if (Inflow <= 392.1) and (Inflow > 174.6) and (Storage > 71337.7) and (PDSI <= 3.39) and (DOY <= 249.0) then module: 0
+if (Inflow <= 392.1) and (Inflow > 174.6) and (Storage > 71337.7) and (PDSI <= 3.39) and (DOY > 249.0) then module: 3
+if (Inflow <= 84.9) and (PDSI > 3.39) and (DOY <= 55.0) then module: 3
+if (Inflow <= 392.1) and (Inflow > 84.9) and (PDSI > 3.39) and (DOY <= 10.0) then module: 2
+if (Inflow <= 392.1) and (Inflow > 84.9) and (PDSI > 3.39) and (DOY <= 55.0) and (DOY > 10.0) then module: 0
+if (Inflow <= 392.1) and (PDSI <= 5.43) and (PDSI > 3.39) and (DOY > 55.0) then module: 1
+if (Inflow <= 233.6) and (PDSI > 5.43) and (DOY > 55.0) then module: 2
+if (Inflow <= 392.1) and (Inflow > 233.6) and (PDSI > 5.43) and (DOY > 55.0) then module: 1
+if (Inflow <= 918.6) and (Inflow > 392.1) and (Storage <= 71099.4) and (PDSI <= -0.36) then module: 0
+if (Inflow <= 918.6) and (Inflow > 392.1) and (Storage <= 71099.4) and (PDSI <= 1.42) and (PDSI > -0.36) then module: 1
+if (Inflow <= 918.6) and (Inflow > 392.1) and (Storage <= 71099.4) and (PDSI > 1.42) then module: 3
+if (Inflow > 918.6) and (Storage <= 71099.4) and (DOY <= 307.0) then module: 2
+if (Inflow > 918.6) and (Storage <= 71099.4) and (DOY > 307.0) then module: 3
+if (Inflow <= 972.1) and (Inflow > 392.1) and (Storage > 71099.4) and (PDSI <= 5.35) then module: 0
+if (Inflow > 972.1) and (Storage > 71099.4) and (PDSI <= -0.41) then module: 1
+if (Inflow > 972.1) and (Storage > 71099.4) and (PDSI <= 5.35) and (PDSI > -0.41) then module: 2
+if (Inflow > 392.1) and (Storage > 71099.4) and (PDSI > 5.35) then module: 2

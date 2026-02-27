@@ -1,40 +1,211 @@
 Metadata-Version: 2.4
 Name: gdromops
-Version: 0.1.0
-Summary: On-demand reservoir operation rules loader and simulator (GDROM)
-Author: Zihan Zheng
-License: MIT
-Project-URL: Homepage, https://github.com/ZihanZheng2000/gdromops
-Requires-Python: >=3.9
+Version: 0.1.1
+Summary: Generic Data-Driven Reservoir Operation Model (GDROM)
+Author-email: Zihan Zheng <your_email@example.com>
+License: 
+        MIT License
+        
+        Copyright (c) 2025
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Keywords: reservoir,hydrology,data-driven,GDROM,water resources
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: pandas>=1.5
-Requires-Dist: requests>=2.31
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: hmmlearn
+Requires-Dist: pandas
+Requires-Dist: xarray
+Requires-Dist: matplotlib
 Dynamic: license-file
-
 
 # gdromops
 
-Load reservoir operation rules (CT + modules) from GitHub on demand and simulate releases/storage.
+`gdromops` provides a reproducible and lightweight framework for applying pre-trained GDROM rules to reservoir operation simulation.  
+It is designed for research and applications in large-scale reservoir system modeling, water resources management, and data-driven hydrology.
 
-## Install (editable dev)
+---
+
+## Installation
+
+Install from GitHub (latest development version):
+
 ```bash
-pip install -e .
+pip install git+https://github.com/ZihanZheng2000/gdromops.git
 ```
 
-## Quick start
+---
+
+## Package Structure
+
+```
+gdromops/
+├── __init__.py
+├── engine.py          # Core simulation engine
+├── loader.py          # Rule loading utilities
+├── parser.py          # Text → callable conversion
+├── data/
+│   ├── pdsi.mon.mean.nc              # Internal PDSI dataset
+│   ├── module_conditions/            # Decision-tree conditions
+│   └── modules/                      # Rule modules (release formulas)
+└── ...
+tests/
+├── test_demo_reservoir449.py          # Example usage
+├── example_data_reservoir449.csv
+```
+
+---
+
+## Quick Start
+
 ```python
-from gdromops import RuleEngine
 import pandas as pd
+from gdromops import RuleEngine
 
-# Timeseries must include columns: Date, Inflow, Storage, DOY, PDSI
-df = pd.read_csv("your_timeseries.csv", parse_dates=["Date"])
+# Initialize RuleEngine for a given reservoir
+engine = RuleEngine("449")
 
-eng = RuleEngine(grand_id=41)  # downloads rules from GitHub (cached locally)
-out = eng.simulate_release_and_storage(df)
-print(out.head())
+# Load input data (example)
+df = pd.read_csv("example_data_reservoir449.csv", parse_dates=["Date"]).set_index("Date")
+inflow = df["Inflow"]
+storage = df["Storage"]
+pdsi = df["PDSI"]
+initial_storage = float(storage.iloc[0])
+
+# ---- Case 1: Simulate a Single Day ----
+date = df.index[0]
+release, new_storage = engine.GDROM_simulate_one_day(
+    inflow=5,            # inflow for one timestep
+    doy=150,             # day of year
+    pdsi=-1.2,           # drought index
+    storage=120.0,       # current storage
+)
+
+# ---- Case 2: Simulate a Multi-day Period (with observed storage) ----
+result_case2 = engine.GDROM_simulate(
+    inflow_series=inflow,
+    storage_series=storage,
+    pdsi_series=pdsi,
+)
+
+# ---- Case 3: Multi-day Simulation (with initial storage only) ----
+result_case3 = engine.GDROM_simulate(
+    inflow_series=inflow,
+    initial_storage=initial_storage,
+    pdsi_series=pdsi,
+)
+
+# ---- Case 4: Auto-fetch PDSI from Location ----
+result_case4 = engine.GDROM_simulate(
+    inflow_series=inflow,
+    initial_storage=initial_storage,
+    latitude=48.7325,
+    longitude=-121.0673,
+)
+
+# ---- Case 5: Use a Different Timestep (e.g., 1 hour or 5 min) ----
+release_t, new_storage_t = engine.GDROM_simulate_timestep(
+    inflow=0.5,          
+    doy=150,             
+    pdsi=-1.2,           
+    storage=120.0,       
+    timestep_hours=1.0,  # e.g., 1 hr (0.0833 for 5 min)
+)
 ```
 
-## Configuration
-Default rules base (GitHub raw) is set in `gdromops/config.py`. Set env var `GDROMOPS_CACHE`
-to change the cache directory.
+---
+
+## Demo
+
+Example data (`example_data_reservoir449.csv`) and test script (`test_demo_reservoir449.py`) are included under `tests/`.  
+Run all four demo cases with:
+
+```bash
+python -m tests.test_demo_reservoir449
+```
+
+---
+
+## Train Res_R Model
+
+`gdromops` now includes a training entrypoint for **Res_R** model construction and rule export.
+
+CLI usage:
+
+```bash
+gdromops-train-res-r \
+  --target-id 589 \
+  --target-data-path "path/to/589.csv" \
+  --summary-path "path/to/reservoir_metadata.csv" \
+  --output-root "path/to/Operation Rules - GDROMs" \
+  --its-values 6,7,8
+```
+
+Optional arguments:
+- `--best-its` and `--best-num-state` to fix hyperparameters.
+- `--save-models-dir` to persist trained `HMDT` and `CART` model files.
+
+Python API:
+
+```python
+from gdromops.training import train_res_r_from_paths
+
+result = train_res_r_from_paths(
+    target_id="589",
+    target_data_path="path/to/589.csv",
+    summary_path="path/to/reservoir_metadata.csv",
+    output_root="path/to/Operation Rules - GDROMs",
+    its_values=(6, 7, 8),
+)
+```
+
+---
+
+
+## Citation
+
+If you use `gdromops` or the GDROM v2 dataset in your research, please cite the dataset or the software:
+
+**Dataset citation**  
+Zheng, Z., X. Cai, Y. Chen (2025). GDROM v2: An Inventory of Operation Variables Time Series and Rules for 2,017 Large Reservoirs across the CONUS, HydroShare, https://doi.org/10.4211/hs.5293674cb83b4ec698db0eb4777467b8
+
+**Software citation**  
+Zheng, Z., et al. (2025). gdromops: A Python package for simulating reservoir operations using GDROM rules. Journal of Open Source Software. Under Review.
+
+---
+
+## License
+
+This project is released under the **MIT License**.  
+See [`LICENSE`](LICENSE) for details.
+
+---
+
+## Contributing
+
+Contributions, feedback, and pull requests are welcome!  
+Please open an issue or submit a PR on GitHub at:  
+[https://github.com/ZihanZheng2000/gdromops](https://github.com/ZihanZheng2000/gdromops)
