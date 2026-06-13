@@ -1,8 +1,4 @@
-﻿# Inference / rule-simulation dependencies (recommended for Python >=3.8)
+# Rule-simulation dependencies
 numpy
-scipy
 pandas
 xarray
-matplotlib
-scikit-learn
-hmmlearn

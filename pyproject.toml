@@ -15,12 +15,8 @@ readme = "README.md"
 requires-python = ">=3.6"
 dependencies = [
     "numpy",
-    "scipy",
-    "scikit-learn",
-    "hmmlearn",
     "pandas",
-    "xarray",
-    "matplotlib"
+    "xarray"
 ]
 keywords = ["reservoir", "hydrology", "data-driven", "GDROM", "water resources"]
 classifiers = [
@@ -39,9 +35,7 @@ include = ["gdromops*"]
 [tool.setuptools.package-data]
 gdromops = [
     "data/*.nc",
+    "data/example_time_series/*.csv",
     "data/module_conditions/*.txt",
     "data/modules/*.txt"
 ]
-
-[project.scripts]
-gdromops-train-res-r = "gdromops.training.cli:main"

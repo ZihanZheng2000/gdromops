@@ -1,7 +1,0 @@
-if (Storage <= 16500.0) and (DOY <= 98.0) then module: 0
-if (Storage > 16500.0) and (DOY <= 57.0) then module: 1
-if (Storage > 16500.0) and (DOY <= 98.0) and (DOY > 57.0) then module: 2
-if (DOY <= 235.0) and (DOY > 98.0) then module: 1
-if (Storage <= 6558.6) and (DOY <= 272.0) and (DOY > 235.0) then module: 1
-if (Storage > 6558.6) and (DOY <= 272.0) and (DOY > 235.0) then module: 2
-if (DOY > 272.0) then module: 0

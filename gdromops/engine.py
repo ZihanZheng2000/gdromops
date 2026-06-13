@@ -23,8 +23,12 @@ class RuleEngine:
 
     def _ensure_ct(self):
         if self._ct is None:
-            ct_txt = load_ct_text(self.grand_id)
-            self._ct = build_ct_function_from_text(self.grand_id, ct_txt)
+            try:
+                ct_txt = load_ct_text(self.grand_id)
+            except FileNotFoundError:
+                self._ct = lambda inflow, pdsi, doy, storage: "0"
+            else:
+                self._ct = build_ct_function_from_text(self.grand_id, ct_txt)
 
     def _get_module(self, module_id):
         mid = "0" if module_id in (None, "") else str(module_id)

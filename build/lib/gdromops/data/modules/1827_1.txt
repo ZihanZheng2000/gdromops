@@ -1,2 +1,0 @@
-if (Inflow <= 1280.2) then Release: 445.3
-if (Inflow > 1280.2) then Release: 3372.1

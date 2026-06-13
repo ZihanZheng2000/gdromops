@@ -1,2 +1,0 @@
-if (Storage < 76139.7616) then Release: 52.1618
-if (Storage >= 76139.7616) then Release: max(0.0000 * Storage + 269.0364, 0)

@@ -1,7 +1,0 @@
-if (Inflow <= 902.9) and (Inflow <= 228.1) and (Storage <= 11693.5) then Release: 75.4
-if (Inflow <= 902.9) and (Inflow <= 228.1) and (Storage > 11693.5) and (Inflow <= 153.3) then Release: 90.6
-if (Inflow <= 902.9) and (Inflow <= 228.1) and (Storage > 11693.5) and (Inflow > 153.3) then Release: 121.7
-if (Inflow <= 902.9) and (Inflow > 228.1) and (Storage <= 12037.3) then Release: 100.5
-if (Inflow <= 902.9) and (Inflow > 228.1) and (Storage > 12037.3) then Release: 168.4
-if (Inflow > 902.9) and (Storage <= 14202.8) then Release: 382.9
-if (Inflow > 902.9) and (Storage > 14202.8) then Release: 659.9

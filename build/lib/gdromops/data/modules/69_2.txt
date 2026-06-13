@@ -1,7 +1,0 @@
-if (Inflow <= 2.0) and (Storage <= 238.4) and (Inflow <= 0.5) then Release: 0.1
-if (Inflow <= 2.0) and (Storage <= 238.4) and (Inflow > 0.5) and (Inflow <= 0.9) then Release: 0.5
-if (Inflow <= 2.0) and (Storage <= 238.4) and (Inflow > 0.5) and (Inflow > 0.9) then Release: 1.0
-if (Inflow <= 2.0) and (Storage > 238.4) then Release: 0.5
-if (Inflow > 2.0) and (Inflow <= 4.9) and (Inflow <= 2.9) then Release: 2.4
-if (Inflow > 2.0) and (Inflow <= 4.9) and (Inflow > 2.9) then Release: 3.3
-if (Inflow > 2.0) and (Inflow > 4.9) then Release: 4.5

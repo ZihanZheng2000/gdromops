@@ -1,2 +1,0 @@
-if (Storage <= 441248.0) then Release: 3223.2
-if (Storage > 441248.0) then Release: 5598.9

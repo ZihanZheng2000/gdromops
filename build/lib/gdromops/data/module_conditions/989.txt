@@ -1,9 +1,0 @@
-if (Storage <= 1188212.9) then module: 0
-if (Inflow <= 1729.0) and (Storage <= 1269778.9) and (Storage > 1188212.9) then module: 0
-if (Inflow <= 3999.0) and (Inflow > 1729.0) and (Storage <= 1269778.9) and (Storage > 1188212.9) then module: 1
-if (Inflow > 3999.0) and (Storage <= 1269778.9) and (Storage > 1188212.9) then module: 1
-if (Inflow <= 14862.0) and (Storage <= 1333796.6) and (Storage > 1269778.9) then module: 1
-if (Inflow > 14862.0) and (Storage <= 1333796.6) and (Storage > 1269778.9) then module: 2
-if (Inflow <= 131341.8) and (Storage > 1333796.6) then module: 2
-if (Inflow > 131341.8) and (Storage <= 3650869.4) and (Storage > 1333796.6) then module: 0
-if (Inflow > 131341.8) and (Storage > 3650869.4) then module: 2

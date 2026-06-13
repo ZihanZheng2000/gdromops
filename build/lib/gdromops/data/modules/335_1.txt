@@ -1,3 +1,0 @@
-if (Storage <= 94.9) and (Storage <= 63.2) then Release: 0.1
-if (Storage <= 94.9) and (Storage > 63.2) then Release: 0.2
-if (Storage > 94.9) then Release: 0.5

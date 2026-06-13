@@ -1,4 +1,0 @@
-if (Inflow <= 1910.9) and (Storage <= 33060.1) and (Storage <= 31310.1) then Release: 27.0
-if (Inflow <= 1910.9) and (Storage <= 33060.1) and (Storage > 31310.1) then Release: 381.1
-if (Inflow <= 1910.9) and (Storage > 33060.1) then Release: 1290.3
-if (Inflow > 1910.9) then Release: 2614.6

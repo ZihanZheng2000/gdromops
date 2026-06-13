@@ -1,2 +1,0 @@
-if (Storage <= 59.0) then Release: 0.4
-if (Storage > 59.0) then Release: 1.1

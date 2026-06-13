@@ -1,6 +1,0 @@
-if (Inflow <= 236.3) then module: 1
-if (Inflow <= 356.8) and (Inflow > 236.3) and (PDSI <= -0.69) then module: 1
-if (Inflow <= 356.8) and (Inflow > 236.3) and (PDSI > -0.69) and (DOY <= 220.0) then module: 1
-if (Inflow <= 356.8) and (Inflow > 236.3) and (Storage <= 21636.8) and (PDSI > -0.69) and (DOY > 220.0) then module: 1
-if (Inflow <= 356.8) and (Inflow > 236.3) and (Storage > 21636.8) and (PDSI > -0.69) and (DOY > 220.0) then module: 0
-if (Inflow > 356.8) then module: 0

@@ -1,1 +1,0 @@
-Release = 0.5155 * Inflow + 0.0099 * Storage + -10.9029

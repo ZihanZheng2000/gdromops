@@ -1,5 +1,0 @@
-if (Inflow <= 59.7) and (DOY <= 59.0) then module: 1
-if (Inflow <= 59.7) and (DOY <= 349.0) and (DOY > 59.0) then module: 0
-if (Inflow <= 59.7) and (DOY > 349.0) then module: 1
-if (Inflow <= 83.6) and (Inflow > 59.7) then module: 1
-if (Inflow > 83.6) then module: 1

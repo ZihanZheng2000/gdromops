@@ -1,6 +1,0 @@
-if (Inflow <= 2478.7) and (Inflow <= 1451.0) and (Inflow <= 370.3) then Release: 973.0
-if (Inflow <= 2478.7) and (Inflow <= 1451.0) and (Inflow > 370.3) then Release: 1985.2
-if (Inflow <= 2478.7) and (Inflow > 1451.0) then Release: 2791.3
-if (Inflow > 2478.7) and (Inflow <= 4924.4) and (Inflow <= 4259.9) then Release: 3799.3
-if (Inflow > 2478.7) and (Inflow <= 4924.4) and (Inflow > 4259.9) then Release: 4184.5
-if (Inflow > 2478.7) and (Inflow > 4924.4) then Release: 4884.6

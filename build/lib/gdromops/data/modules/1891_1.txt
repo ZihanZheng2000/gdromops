@@ -1,3 +1,0 @@
-if (Inflow <= 432.6) and (Inflow <= 275.6) then Release: 184.5
-if (Inflow <= 432.6) and (Inflow > 275.6) then Release: 351.9
-if (Inflow > 432.6) then Release: 604.5

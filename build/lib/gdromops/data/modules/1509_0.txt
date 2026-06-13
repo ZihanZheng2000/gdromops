@@ -1,6 +1,0 @@
-if (Inflow <= 444.5) and (Inflow <= 179.2) and (Inflow <= 23.9) then Release: 19.8
-if (Inflow <= 444.5) and (Inflow <= 179.2) and (Inflow > 23.9) and (Storage <= 13979.2) and (Inflow <= 99.9) then Release: 52.9
-if (Inflow <= 444.5) and (Inflow <= 179.2) and (Inflow > 23.9) and (Storage <= 13979.2) and (Inflow > 99.9) then Release: 70.3
-if (Inflow <= 444.5) and (Inflow <= 179.2) and (Inflow > 23.9) and (Storage > 13979.2) then Release: 90.6
-if (Inflow <= 444.5) and (Inflow > 179.2) then Release: 140.5
-if (Inflow > 444.5) then Release: 692.6

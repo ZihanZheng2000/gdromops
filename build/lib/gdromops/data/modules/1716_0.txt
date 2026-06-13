@@ -1,4 +1,0 @@
-if (Storage <= 340315.4) and (Storage <= 317649.8) then Release: 2296.9
-if (Storage <= 340315.4) and (Storage > 317649.8) and (Storage <= 326149.0) then Release: 3665.0
-if (Storage <= 340315.4) and (Storage > 317649.8) and (Storage > 326149.0) then Release: 5309.5
-if (Storage > 340315.4) then Release: 11578.0

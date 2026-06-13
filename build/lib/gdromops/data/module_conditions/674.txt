@@ -1,8 +1,0 @@
-if (Inflow <= 4.7) and (PDSI <= 3.74) and (DOY <= 86.0) then module: 3
-if (Inflow <= 4.7) and (PDSI > 3.74) and (DOY <= 14.0) then module: 3
-if (Inflow <= 4.7) and (PDSI > 3.74) and (DOY <= 86.0) and (DOY > 14.0) then module: 0
-if (Inflow <= 15.6) and (Inflow > 4.7) and (PDSI <= 2.5) and (DOY <= 86.0) then module: 3
-if (Inflow <= 15.6) and (Inflow > 4.7) and (PDSI <= 3.73) and (PDSI > 2.5) and (DOY <= 86.0) then module: 3
-if (Inflow <= 15.6) and (Inflow > 4.7) and (PDSI > 3.73) and (DOY <= 86.0) then module: 0
-if (Inflow <= 15.6) and (DOY > 86.0) then module: 3
-if (Inflow > 15.6) then module: 3

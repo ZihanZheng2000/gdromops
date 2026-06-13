@@ -1,2 +1,0 @@
-if (Inflow <= 3.7) then Release: 5.4
-if (Inflow > 3.7) then Release: 11.3

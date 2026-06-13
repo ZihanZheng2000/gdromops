@@ -1,2 +1,0 @@
-if (Inflow <= 9402.6) then Release: 2913.1
-if (Inflow > 9402.6) then Release: 4540.6

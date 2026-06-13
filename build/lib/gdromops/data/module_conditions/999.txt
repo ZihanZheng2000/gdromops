@@ -1,4 +1,0 @@
-if (Inflow <= 22.4) and (Storage <= 5872.5) then module: 0
-if (Inflow <= 38.8) and (Inflow > 22.4) and (Storage <= 5872.5) then module: 1
-if (Inflow <= 38.8) and (Storage > 5872.5) then module: 0
-if (Inflow > 38.8) then module: 0

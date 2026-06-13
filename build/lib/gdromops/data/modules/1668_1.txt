@@ -1,2 +1,0 @@
-if (Inflow <= 2.7) then Release: 3.9
-if (Inflow > 2.7) then Release: 8.3

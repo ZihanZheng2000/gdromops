@@ -1,6 +1,0 @@
-if (Inflow <= 317.1) then module: 0
-if (Inflow <= 368.2) and (Inflow > 317.1) then module: 1
-if (Inflow <= 375.5) and (Inflow > 368.2) then module: 0
-if (Inflow <= 388.3) and (Inflow > 375.5) then module: 1
-if (Inflow <= 396.7) and (Inflow > 388.3) then module: 0
-if (Inflow > 396.7) then module: 1

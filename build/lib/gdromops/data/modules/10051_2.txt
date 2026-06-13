@@ -1,2 +1,0 @@
-if (Inflow <= 10.5353) then Release: 46.5649
-if (Inflow > 10.5353) then Release: 48.2036

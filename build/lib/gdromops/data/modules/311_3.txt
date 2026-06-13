@@ -1,8 +1,0 @@
-if (Storage <= 139714.4) and (Storage <= 98122.4) then Release: 5510.4
-if (Storage <= 139714.4) and (Storage > 98122.4) then Release: 7308.7
-if (Storage > 139714.4) and (Storage <= 532253.1) and (Storage <= 415659.4) and (Storage <= 268183.8) then Release: 9329.9
-if (Storage > 139714.4) and (Storage <= 532253.1) and (Storage <= 415659.4) and (Storage > 268183.8) and (Storage <= 369359.6) and (Inflow <= 2720.1) then Release: 9458.1
-if (Storage > 139714.4) and (Storage <= 532253.1) and (Storage <= 415659.4) and (Storage > 268183.8) and (Storage <= 369359.6) and (Inflow > 2720.1) then Release: 10972.3
-if (Storage > 139714.4) and (Storage <= 532253.1) and (Storage <= 415659.4) and (Storage > 268183.8) and (Storage > 369359.6) then Release: 9512.6
-if (Storage > 139714.4) and (Storage <= 532253.1) and (Storage > 415659.4) then Release: 8446.2
-if (Storage > 139714.4) and (Storage > 532253.1) then Release: 11845.2
